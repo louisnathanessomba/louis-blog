@@ -1,7 +1,7 @@
 title: Louis — Firmware AI
 description: A minimalist, research-driven blog on device intelligence, ethics, and sustainable tech.
 baseurl: "" # leave empty for project pages unless using a custom domain
-url: "https://<your-username>.github.io"
+url: "https://louisnathanessomba.github.io"
 
 theme: minima # temporary; we'll override layouts and CSS
 
