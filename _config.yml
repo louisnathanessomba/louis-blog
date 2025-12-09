@@ -1,1 +1,47 @@
+title: Louis — Firmware AI
+description: A minimalist, research-driven blog on device intelligence, ethics, and sustainable tech.
+baseurl: "" # leave empty for project pages unless using a custom domain
+url: "https://<your-username>.github.io"
+
+theme: minima # temporary; we'll override layouts and CSS
+
+markdown: kramdown
+permalink: /:categories/:title/
+
+collections:
+  foundations:
+    output: true
+    permalink: /Foundations/:name/
+  applied_works:
+    output: true
+    permalink: /Applied-Works/:name/
+  exploring_frontiers:
+    output: true
+    permalink: /Exploring-Frontiers/:name/
+  everyday_insights:
+    output: true
+    permalink: /Everyday-Insights/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Navigation (we'll render this in _includes/nav.html)
+nav:
+  - name: Home
+    url: /
+  - name: Foundations
+    url: /Foundations/
+  - name: Applied Works
+    url: /Applied-Works/
+  - name: Exploring Frontiers
+    url: /Exploring-Frontiers/
+  - name: Ethics & Ecology
+    url: /Ethics-and-Ecology/
+  - name: Everyday Insights
+    url: /Everyday-Insights/
+  - name: About Me
+    url: /About-Me/
 
