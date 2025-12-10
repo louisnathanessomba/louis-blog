@@ -1,11 +1,26 @@
 ---
 layout: default
 ---
-<header class="section-header">
-  <h1>{{ page.title }}</h1>
-  {% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}</p>{% endif %}
-</header>
-<section class="section-content">
-  {{ content }}
-</section>
+<section class="section">
+  <header class="section-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}
+      <p class="subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+  </header>
 
+  <div class="section-content">
+    {{ content }}
+  </div>
+
+  {% if page.links %}
+    <nav class="section-links">
+      <h2>Explore More</h2>
+      <ul>
+        {% for link in page.links %}
+          <li><a href="{{ link.url | relative_url }}">{{ link.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+</section>
