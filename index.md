@@ -11,3 +11,9 @@ Welcome. This space documents the Firmware AI thesis and its real-world applicat
 - **Ethics & Ecology:** Their interdependence, by design.
 - **Everyday Insights:** Student life and news reflections.
 
+### Featured
+- [Firmware AI Thesis](/Foundations/firmware-ai-thesis/)
+- [Local Mini AI Project](/Applied-Works/local-mini-ai/)
+- [Offline-First SaaS](/Applied-Works/offline-first-saas/)
+
+
