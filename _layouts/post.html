@@ -1,6 +1,11 @@
 ---
 layout: default
 ---
+<nav class="breadcrumbs">
+  <a href="{{ '/' | relative_url }}">Home</a> › 
+  <a href="{{ page.collection | capitalize | relative_url }}">{{ page.collection }}</a> › 
+  {{ page.title }}
+</nav>
 <article class="post">
   <header>
     <h1>{{ page.title }}</h1>
