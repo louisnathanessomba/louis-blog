@@ -1,47 +1,248 @@
-title: Louis — Firmware AI
-description: A minimalist, research-driven blog on device intelligence, ethics, and sustainable tech.
-baseurl: "" # leave empty for project pages unless using a custom domain
-url: "https://louisnathanessomba.github.io"
+# Site identity
+title: "Firmware AI — Responsible Innovation"
+description: "A living lab notebook and public journal: thesis, applied projects, research, ethics & ecology, and everyday insights."
+url: "https://louisnathanessomba.github.io"   # e.g., https://louisolingablog.github.io
+baseurl: "/louis-blog"                               # e.g., "/blog" if hosted in a subpath
+lang: "en"
+timezone: "Africa/Douala"
 
-theme: minima # temporary; we'll override layouts and CSS
+# Author and social
+author:
+  name: "Louis Nathan Essomba"
+  email: "louisnathanessomba@gmail.com"
+  github: "louisnathanessomba.github.io"
+  linkedin: "your-linkedin"
+  location: "Yaoundé, Cameroon"
+github_username: "louisnathanessomba"
+repository: "louisnathanessomba"
 
+# Build settings
 markdown: kramdown
-permalink: /:categories/:title/
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  toc_levels: 2..4
+  syntax_highlighter_opts:
+    blockline_numbers: false
 
+permalink: /:categories/:title/
+paginate: 10
+paginate_path: "/page:num"
+
+# Theme variables (hooked into CSS)
+theme:
+  colors:
+    bg: "#0f0f10"
+    fg: "#e8e8e8"
+    muted: "#b5b5b5"
+    accent: "#606060"
+    border: "#262626"
+  fonts:
+    body: "Inter, Roboto, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif"
+  layout:
+    max_width: 900
+
+# Navigation (consumed by _includes/nav.html)
+nav:
+  - name: "Foundations"
+    url: "/Foundations/"
+  - name: "Applied Works"
+    url: "/Applied-Works/"
+  - name: "Exploring Frontiers"
+    url: "/Exploring-Frontiers/"
+  - name: "Ethics & Ecology"
+    url: "/Ethics-&-Ecology/"
+  - name: "Everyday Insights"
+    url: "/Everyday-Insights/"
+  - name: "About Me"
+    url: "/About-Me/"
+
+# Collections (each division as a collection for clean URLs and breadcrumbs)
 collections:
   foundations:
     output: true
     permalink: /Foundations/:name/
-  applied_works:
+  applied-works:
     output: true
     permalink: /Applied-Works/:name/
-  exploring_frontiers:
+  exploring-frontiers:
     output: true
     permalink: /Exploring-Frontiers/:name/
-  everyday_insights:
+  ethics-ecology:
+    output: true
+    permalink: /Ethics-&-Ecology/:name/
+  everyday-insights:
     output: true
     permalink: /Everyday-Insights/:name/
+  about-me:
+    output: true
+    permalink: /About-Me/:name/
 
+# Defaults (auto-apply layouts, categories, and metadata per collection)
 defaults:
+  # Global default for regular pages
   - scope:
       path: ""
+      type: "pages"
     values:
       layout: default
 
-# Navigation (we'll render this in _includes/nav.html)
-nav:
-  - name: Home
-    url: /
-  - name: Foundations
-    url: /Foundations/
-  - name: Applied Works
-    url: /Applied-Works/
-  - name: Exploring Frontiers
-    url: /Exploring-Frontiers/
-  - name: Ethics & Ecology
-    url: /Ethics-and-Ecology/
-  - name: Everyday Insights
-    url: /Everyday-Insights/
-  - name: About Me
-    url: /About-Me/
+  # Landing pages (section layout)
+  - scope:
+      path: "pages/foundations"
+    values:
+      layout: section
+      categories: ["foundations"]
+  - scope:
+      path: "pages/applied-works"
+    values:
+      layout: section
+      categories: ["applied-works"]
+  - scope:
+      path: "pages/exploring-frontiers"
+    values:
+      layout: section
+      categories: ["exploring-frontiers"]
+  - scope:
+      path: "pages/ethics-ecology"
+    values:
+      layout: section
+      categories: ["ethics-ecology"]
+  - scope:
+      path: "pages/everyday-insights"
+    values:
+      layout: section
+      categories: ["everyday-insights"]
+  - scope:
+      path: "pages/about-me"
+    values:
+      layout: section
+      categories: ["about-me"]
 
+  # Documents in collections (post layout + category)
+  - scope:
+      path: ""
+      type: "foundations"
+    values:
+      layout: post
+      categories: ["foundations"]
+  - scope:
+      path: ""
+      type: "applied-works"
+    values:
+      layout: post
+      categories: ["applied-works"]
+  - scope:
+      path: ""
+      type: "exploring-frontiers"
+    values:
+      layout: post
+      categories: ["exploring-frontiers"]
+  - scope:
+      path: ""
+      type: "ethics-ecology"
+    values:
+      layout: post
+      categories: ["ethics-ecology"]
+  - scope:
+      path: ""
+      type: "everyday-insights"
+    values:
+      layout: post
+      categories: ["everyday-insights"]
+  - scope:
+      path: ""
+      type: "about-me"
+    values:
+      layout: post
+      categories: ["about-me"]
+
+# Plugins (SEO, feeds, sitemap, archives, pagination)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-archives
+  - jekyll-paginate
+
+# Archives config (generate /tags/ and /categories/ index pages)
+jekyll_archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive
+    tag: archive
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
+# RSS/Atom feed
+feed:
+  path: atom.xml
+
+# SEO config (jekyll-seo-tag)
+seo:
+  type: "Website"
+  twitter:
+    username: "your-twitter"
+  facebook:
+    publisher: "your-facebook"
+logo: "/assets/images/logo.png"
+
+# Sass/CSS
+sass:
+  sass_dir: assets/css
+  style: compressed
+
+# Static files
+exclude:
+  - README.md
+  - _templates/
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - vendor/
+  - scripts/
+  - .gitignore
+  - .DS_Store
+
+include:
+  - pages/
+
+# Collections ordering (optional: manual or date-based)
+collections_dir: "_collections"
+# If you prefer documents inside _foundations/, _applied-works/, etc., omit collections_dir and create those folders at root:
+# _foundations/, _applied-works/, _exploring-frontiers/, _ethics-ecology/, _everyday-insights/, _about-me/
+
+# Pagination targets (home/index pagination)
+paginate_collections: true
+
+# Defaults for posts in _posts (optional, if you keep a general blog feed)
+# You can mix general posts with division docs
+posts:
+  sort_by: "date"
+  sort_order: "descending"
+
+# Custom site variables (handy in includes/layouts)
+site_links:
+  home: "/"
+  foundations: "/Foundations/"
+  applied_works: "/Applied-Works/"
+  exploring_frontiers: "/Exploring-Frontiers/"
+  ethics_ecology: "/Ethics-&-Ecology/"
+  everyday_insights: "/Everyday-Insights/"
+  about_me: "/About-Me/"
+
+# Security / safe mode (GitHub Pages auto-enforces a subset; for local builds)
+# safe: true
+
+# Collections sorting (by date or weight front matter)
+order:
+  foundations: "date"
+  applied-works: "date"
+  exploring-frontiers: "date"
+  ethics-ecology: "date"
+  everyday-insights: "date"
+  about-me: "date"
