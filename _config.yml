@@ -163,7 +163,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-archives
   - jekyll-paginate
 
 # Archives config (generate /tags/ and /categories/ index pages)
