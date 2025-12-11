@@ -13,10 +13,10 @@ Here, I explain the paradigm: AI embedded as firmware in devices, borrowing mode
 
 ## 📜 Key Essays
 
-- [Firmware AI Thesis](/Foundations/firmware-ai-thesis/)  
+- [Firmware AI Thesis](/foundations/firmware-ai-thesis/)  
   The central essay: AI as device intelligence, cloud as algorithm library, and the implications for dependency, sustainability, and democratization.
 
-- [Vision Statement](/Foundations/vision/)  
+- [Vision Statement](/foundations/vision/)  
   A forward-looking statement on how Firmware AI can reshape technology for humanity and the planet.
 
 ---
