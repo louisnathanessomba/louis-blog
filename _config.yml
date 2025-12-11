@@ -46,38 +46,38 @@ theme:
 # Navigation (consumed by _includes/nav.html)
 nav:
   - name: "Foundations"
-    url: "/Foundations/"
+    url: "/foundations/"
   - name: "Applied Works"
-    url: "/Applied-Works/"
+    url: "/applied-works/"
   - name: "Exploring Frontiers"
-    url: "/Exploring-Frontiers/"
+    url: "/exploring-frontiers/"
   - name: "Ethics & Ecology"
-    url: "/Ethics-&-Ecology/"
+    url: "/ethics-and-ecology/"
   - name: "Everyday Insights"
-    url: "/Everyday-Insights/"
+    url: "/everyday-insights/"
   - name: "About Me"
-    url: "/About-Me/"
+    url: "/about-me/"
 
 # Collections (each division as a collection for clean URLs and breadcrumbs)
 collections:
   foundations:
     output: true
-    permalink: /Foundations/:name/
+    permalink: /foundations/:name/
   applied-works:
     output: true
-    permalink: /Applied-Works/:name/
+    permalink: /applied-works/:name/
   exploring-frontiers:
     output: true
-    permalink: /Exploring-Frontiers/:name/
+    permalink: /exploring-frontiers/:name/
   ethics-ecology:
     output: true
-    permalink: /Ethics-&-Ecology/:name/
+    permalink: /ethics-and-cology/:name/
   everyday-insights:
     output: true
-    permalink: /Everyday-Insights/:name/
+    permalink: /everyday-insights/:name/
   about-me:
     output: true
-    permalink: /About-Me/:name/
+    permalink: /about-me/:name/
 
 # Defaults (auto-apply layouts, categories, and metadata per collection)
 defaults:
@@ -105,7 +105,7 @@ defaults:
       layout: section
       categories: ["exploring-frontiers"]
   - scope:
-      path: "pages/ethics-ecology"
+      path: "pages/ethics-and-ecology"
     values:
       layout: section
       categories: ["ethics-ecology"]
@@ -141,7 +141,7 @@ defaults:
       categories: ["exploring-frontiers"]
   - scope:
       path: ""
-      type: "ethics-ecology"
+      type: "ethics-and-ecology"
     values:
       layout: post
       categories: ["ethics-ecology"]
@@ -207,6 +207,7 @@ exclude:
   - scripts/
   - .gitignore
   - .DS_Store
+  - _links/
 
 include:
   - pages/
@@ -228,12 +229,12 @@ posts:
 # Custom site variables (handy in includes/layouts)
 site_links:
   home: "/"
-  foundations: "/Foundations/"
-  applied_works: "/Applied-Works/"
-  exploring_frontiers: "/Exploring-Frontiers/"
-  ethics_ecology: "/Ethics-&-Ecology/"
-  everyday_insights: "/Everyday-Insights/"
-  about_me: "/About-Me/"
+  foundations: "/foundations/"
+  applied_works: "/applied-works/"
+  exploring_frontiers: "/exploring-frontiers/"
+  ethics_ecology: "/ethics-and-ecology/"
+  everyday_insights: "/everyday-insights/"
+  about_me: "/about-me/"
 
 # Security / safe mode (GitHub Pages auto-enforces a subset; for local builds)
 # safe: true
