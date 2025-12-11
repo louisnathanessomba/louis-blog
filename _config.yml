@@ -10,11 +10,11 @@ timezone: "Africa/Douala"
 author:
   name: "Louis Nathan Essomba"
   email: "louisnathanessomba@gmail.com"
-  github: "louisnathanessomba.github.io"
+  github: "louisnathanessomba"   # use username (not the .github.io hostname)
   linkedin: "your-linkedin"
   location: "Yaoundé, Cameroon"
 github_username: "louisnathanessomba"
-repository: "louisnathanessomba"
+repository: "louis-blog"
 
 # Build settings
 markdown: kramdown
@@ -69,9 +69,9 @@ collections:
   exploring-frontiers:
     output: true
     permalink: /exploring-frontiers/:name/
-  ethics-ecology:
+  ethics-and-ecology:
     output: true
-    permalink: /ethics-and-cology/:name/
+    permalink: /ethics-and-ecology/:name/
   everyday-insights:
     output: true
     permalink: /everyday-insights/:name/
@@ -108,7 +108,7 @@ defaults:
       path: "pages/ethics-and-ecology"
     values:
       layout: section
-      categories: ["ethics-ecology"]
+      categories: ["ethics-and-ecology"]
   - scope:
       path: "pages/everyday-insights"
     values:
@@ -144,7 +144,7 @@ defaults:
       type: "ethics-and-ecology"
     values:
       layout: post
-      categories: ["ethics-ecology"]
+      categories: ["ethics-and-ecology"]
   - scope:
       path: ""
       type: "everyday-insights"
@@ -215,7 +215,7 @@ include:
 # Collections ordering (optional: manual or date-based)
 collections_dir: "_collections"
 # If you prefer documents inside _foundations/, _applied-works/, etc., omit collections_dir and create those folders at root:
-# _foundations/, _applied-works/, _exploring-frontiers/, _ethics-ecology/, _everyday-insights/, _about-me/
+# _foundations/, _applied-works/, _exploring-frontiers/, _ethics-and-ecology/, _everyday-insights/, _about-me/
 
 # Pagination targets (home/index pagination)
 paginate_collections: true
@@ -244,6 +244,6 @@ order:
   foundations: "date"
   applied-works: "date"
   exploring-frontiers: "date"
-  ethics-ecology: "date"
+  ethics-and-ecology: "date"
   everyday-insights: "date"
   about-me: "date"
