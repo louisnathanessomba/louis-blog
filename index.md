@@ -13,13 +13,13 @@ This blog documents my thesis, applied projects, independent research, and refle
 
 ## 🌟 Featured
 
-- [Firmware AI Thesis](/Foundations/firmware-ai-thesis/)  
+- [Firmware AI Thesis](/foundations/firmware-ai-thesis.md/)  
   The core paradigm: AI embedded in devices, borrowing models from the cloud.
 
-- [Local Mini AI Project](/Applied-Works/local-mini-ai/)  
+- [Local Mini AI Project](/applied-works/local-mini-ai.md/)  
   A proof-of-concept mobile app testing local intelligence through conditional and iterative structures.
 
-- [Offline-First SaaS for the South](/Applied-Works/offline-first-saas/)  
+- [Offline-First SaaS for the South](/applied-works/offline-first-saas.md/)  
   A sustainable platform for digitalization in Africa and South America, built on Raspberry Pi.
 
 ---
