@@ -1,6 +1,7 @@
 ---
+title: "Foundations"
 layout: section
-title: Foundations
+permalink: /foundations/
 subtitle: Thesis & Vision
 ---
 
