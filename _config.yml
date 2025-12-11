@@ -46,17 +46,17 @@ theme:
 # Navigation (consumed by _includes/nav.html)
 nav:
   - name: "Foundations"
-    url: "/louis-blog/foundations/"
+    url: "{{ site.baseurl }}/foundations/"
   - name: "Applied Works"
-    url: "/louis-blog/applied-works/"
+    url: "{{ site.baseurl }}/applied-works/"
   - name: "Exploring Frontiers"
-    url: "/louis-blog/exploring-frontiers/"
+    url: "{{ site.baseurl }}/exploring-frontiers/"
   - name: "Ethics & Ecology"
-    url: "/louis-blog/ethics-and-ecology/"
+    url: "{{ site.baseurl }}/ethics-and-ecology/"
   - name: "Everyday Insights"
-    url: "/louis-blog/everyday-insights/"
+    url: "{{ site.baseurl }}/everyday-insights/"
   - name: "About Me"
-    url: "/louis-blog/about-me/"
+    url: "{{ site.baseurl }}/about-me/"
 
 # Collections (each division as a collection for clean URLs and breadcrumbs)
 collections:
