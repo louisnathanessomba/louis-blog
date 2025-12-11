@@ -210,12 +210,6 @@ exclude:
 
 include:
   - pages/
-
-# Collections ordering (optional: manual or date-based)
-collections_dir: "_collections"
-# If you prefer documents inside _foundations/, _applied-works/, etc., omit collections_dir and create those folders at root:
-# _foundations/, _applied-works/, _exploring-frontiers/, _ethics-and-ecology/, _everyday-insights/, _about-me/
-
 # Pagination targets (home/index pagination)
 paginate_collections: true
 
