@@ -1,36 +1,79 @@
 ---
 layout: default
 ---
+
 <article class="post">
+
+  <!-- ========================= -->
+  <!-- POST HEADER -->
+  <!-- ========================= -->
   <header class="post-header">
-    <h1>{{ page.title }}</h1>
-    {% if page.date %}
-      <p class="meta">Published on {{ page.date | date: "%B %d, %Y" }}</p>
+
+    {% if page.thumbnail %}
+      <div class="post-thumbnail">
+        <img src="{{ page.thumbnail | relative_url }}" 
+             alt="{{ page.title }} thumbnail">
+      </div>
     {% endif %}
+
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    {% if page.subtitle %}
+      <p class="post-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+
+    <p class="post-meta">
+      {% if page.date %}
+        <span>Published on {{ page.date | date: "%B %d, %Y" }}</span>
+      {% endif %}
+
+      {% if page.views %}
+        <span>• {{ page.views }} views</span>
+      {% endif %}
+    </p>
+
     {% if page.tags %}
-      <p class="tags">
-        Tags:
+      <p class="post-tags">
         {% for tag in page.tags %}
-          <a href="/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+          <a class="tag" href="{{ '/tags/' | relative_url }}{{ tag | slugify }}/">
+            {{ tag }}
+          </a>
         {% endfor %}
       </p>
     {% endif %}
   </header>
 
+  <!-- ========================= -->
+  <!-- POST CONTENT -->
+  <!-- ========================= -->
   <div class="post-content">
     {{ content }}
   </div>
 
+  <!-- ========================= -->
+  <!-- BREADCRUMBS -->
+  <!-- ========================= -->
   <footer class="post-footer">
     <nav class="breadcrumbs">
-      <a href="{{ '/' | relative_url }}">Home</a> › 
-      <a href="{{ page.collection | relative_url }}">{{ page.collection | capitalize }}</a> › 
-      {{ page.title }}
+      <a href="{{ site.baseurl }}/">Home</a> ›
+      <a href="{{ site.baseurl }}/{{ page.collection }}/">
+        {{ page.collection | replace: '-', ' ' | capitalize }}
+      </a> ›
+      <span>{{ page.title }}</span>
     </nav>
   </footer>
+
 </article>
+
+<!-- ========================= -->
+<!-- GLOBAL FOOTER -->
+<!-- ========================= -->
 <footer class="footer">
-  <small>&copy; {{ site.time | date: "%Y" }} Louis — Firmware AI</small> |
-  <a href="/About-Me/">About Me</a> |
-  <a href="https://github.com/louisnathanessomba/louis-blog">GitHub Repo</a>
+  <small>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</small>
+  <span>•</span>
+  <a href="{{ site.baseurl }}/about-me/">About Me</a>
+  <span>•</span>
+  <a href="https://github.com/{{ site.github_username }}/{{ site.repository }}">
+    GitHub Repo
+  </a>
 </footer>
