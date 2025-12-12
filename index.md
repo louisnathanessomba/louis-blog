@@ -5,43 +5,57 @@ subtitle: "A living lab notebook by Louis Nathan Essomba"
 permalink: /
 ---
 
-# Welcome — I’m Louis Nathan Essomba
+<!-- ========================= -->
+<!-- HERO SECTION -->
+<!-- ========================= -->
 
-I’m a young scientist-technologist exploring the intersection of **AI, ethics, ecology, and device intelligence**.  
-This blog is my **living lab notebook** — a place where I build, test, and refine the ideas behind my **Firmware AI thesis**.
+<div class="hero">
+  <div class="hero-left">
+    <img src="{{ site.baseurl }}/assets/images/me/portrait.jpg" alt="Portrait of Louis Nathan Essomba" class="hero-portrait">
+  </div>
 
-Everything here is guided by a simple belief:
+  <div class="hero-right">
+    <h1>Welcome — I’m Louis Nathan Essomba</h1>
+    <p>
+      I’m a young scientist-technologist exploring the intersection of 
+      <strong>AI, ethics, ecology, and device intelligence</strong>.  
+      This blog is my <strong>living lab notebook</strong> — a place where I build, test, and document the 
+      <strong>Firmware AI thesis</strong>.
+    </p>
+<div class="hero-video">
+      <video controls width="100%">
+        <source src="{{ site.baseurl }}/assets/videos/personal/welcome-message.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+---
+
+# 🌌 My Vision — Firmware AI
+
+<div class="vision-diagram">
+  <img src="{{ site.baseurl }}/assets/images/diagrams/device-cloud-firmware-ai.png" 
+       alt="Diagram of Firmware AI: device ↔ cloud as algorithm library">
+</div>
 
 > **Intelligence should live on devices.  
 > The cloud should be a library of algorithms, not a master.**
 
-This homepage introduces my vision and guides you through the six divisions of the blog, each with its latest and most impactful posts.
-
----
-
-# 🌌 My Vision
-
-I imagine a world where:
+I believe in a future where:
 
 - Devices carry **local intelligence**  
 - The cloud becomes a **temporary algorithm library**  
-- Innovation is **ethical, ecological, and equitable**  
 - Technology respects **humans** and **Earth**  
+- Innovation is **ethical, ecological, and equitable**  
 - Access to algorithms is **democratized**, not centralized  
 
-This blog is where I explore and build that future.
+This blog is where I build that future, one essay and one project at a time.
 
 ---
 
-# 🧭 Explore the Blog  
-### Six divisions — each with its latest and most viewed post
-
-Below, each section includes:
-
-✅ A short description  
-✅ A link to the section  
-✅ The **latest post**  
-✅ The **most viewed post**  
+# 🧭 Explore the Divisions  
+Each card includes a short description, a link to the section, and the **latest** + **most viewed** posts.
 
 ---
 
@@ -141,9 +155,3 @@ Below, each section includes:
 
 ---
 
-# ✅ How to Enable “Most Viewed”
-
-Add this to each post’s front matter:
-
-```yaml
-views: 0
