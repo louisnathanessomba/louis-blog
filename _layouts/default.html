@@ -1,33 +1,73 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ site.lang | default: 'en' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>{{ page.title }} — {{ site.title }}</title>
   <meta name="description" content="{{ page.subtitle | default: site.description }}">
+
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
+
 <body>
+  <!-- ========================= -->
+  <!-- HEADER + NAVIGATION -->
+  <!-- ========================= -->
   <header class="site-header">
     {% include nav.html %}
-    {% if page.layout == "home" %}
-      <div class="hero">
-        <h1>{{ site.title }}</h1>
-        <p>{{ site.description }}</p>
-      </div>
-    {% endif %}
   </header>
+
+  <!-- ========================= -->
+  <!-- HYBRID HERO (HOME ONLY) -->
+  <!-- ========================= -->
+  {% if page.layout == "home" %}
+  <section class="hero hybrid-hero">
+
+    <div class="hero-left">
+      <img src="{{ site.baseurl }}/assets/images/me/portrait.jpg"
+           alt="Portrait of Louis Nathan Essomba"
+           class="hero-portrait">
+    </div>
+
+    <div class="hero-right">
+      <h1>{{ site.title }}</h1>
+      <p>{{ site.description }}</p>
+
+      <div class="hero-video">
+        <video controls width="100%">
+          <source src="{{ site.baseurl }}/assets/videos/personal/welcome-message.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="hero-diagram">
+        <img src="{{ site.baseurl }}/assets/images/diagrams/device-cloud-firmware-ai.png"
+             alt="Firmware AI conceptual diagram">
+      </div>
+    </div>
+
+  </section>
+  {% endif %}
+
+  <!-- ========================= -->
+  <!-- MAIN CONTENT -->
+  <!-- ========================= -->
   <main class="container">
     {{ content }}
   </main>
 
+  <!-- ========================= -->
+  <!-- FOOTER -->
+  <!-- ========================= -->
   <footer class="site-footer">
     <small>&copy; {{ site.time | date: "%Y" }} {{ site.title }} — Built with Jekyll</small>
+
     <div class="footer-links">
-      <a href="https://github.com/louisnathanessomba/louis-blog/blob/main/pages/about-me/index.md">About Me</a> |
+      <a href="{{ site.baseurl }}/about-me/">About Me</a>
+      <span>•</span>
       <a href="https://github.com/{{ site.github_username }}/{{ site.repository }}">GitHub Repo</a>
     </div>
   </footer>
+
 </body>
 </html>
-
