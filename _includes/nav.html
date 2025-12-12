@@ -1,7 +1,15 @@
 <nav class="nav">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  {% for item in site.nav %}
-    <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
-  {% endfor %}
-</nav>
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
+    </li>
 
+    {% for item in site.nav %}
+      <li class="nav-item">
+        <a href="{{ item.url | relative_url }}" class="nav-link">
+          {{ item.name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
