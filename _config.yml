@@ -4,7 +4,7 @@
 title: "Firmware AI — Responsible Innovation"
 description: "A living lab notebook and public journal: thesis, applied projects, research, ethics & ecology, and everyday insights."
 url: "https://louisnathanessomba.github.io"
-baseurl: "/louis-blog"   # your repo name
+baseurl: "/louis-blog"
 lang: "en"
 timezone: "Africa/Douala"
 
@@ -37,7 +37,7 @@ paginate: 10
 paginate_path: "/page:num"
 
 # ============================================================
-# THEME VARIABLES (your custom CSS uses these)
+# THEME VARIABLES (used in your custom CSS)
 # ============================================================
 theme:
   colors:
@@ -139,7 +139,7 @@ defaults:
       layout: section
       categories: ["about-me"]
 
-  # Collection documents
+  # Collection documents (posts)
   - scope:
       path: ""
       type: "foundations"
