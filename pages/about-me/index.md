@@ -1,24 +1,28 @@
 ---
 layout: section
-title: About Me
-subtitle: Vision, background, and how to connect
+title: "About Me"
+subtitle: "Vision, background, and how to connect"
+permalink: /about-me/
 ---
 
-# About Me — Louis Olinga
+# About Me — Louis Nathan Essomba
 
-I am a young scientist-technologist, currently in the scientific department of Première, with strong foundations in mathematics, physics, chemistry, and computer science.  
-Beyond school programs, I pursue advanced research independently, building projects that serve as proofs of concept for my **Firmware AI thesis**.
+I am a young scientist-technologist in the scientific department of Première, with strong foundations in mathematics, physics, chemistry, and computer science.  
+Beyond school programs, I pursue advanced research independently, building projects that serve as proofs of concept for my **Firmware AI thesis** — a vision for sustainable, local, ethical intelligence.
+
+This page introduces my vision, skills, philosophy, and ongoing projects.  
+At the end, you’ll find a dynamic feed of personal posts and updates.
 
 ---
 
-## 🌌 Vision
+# 🌌 Vision
 
 My long-term mission is to democratize access to algorithms and reduce dependence on centralized elites.  
-Through **Firmware AI**, I envision devices with local intelligence, borrowing models from the cloud as a library of algorithms, always guided by ethics and ecology.
+Through **Firmware AI**, I envision devices with local intelligence, borrowing models from the cloud as a temporary algorithm library — always guided by ethics and ecology.
 
 ---
 
-## 🛠 Skills & Interests
+# 🛠 Skills & Interests
 
 - Informatics, coding (Markdown, HTML, CSS, JS, system architecture)  
 - Advanced reasoning in mathematics, physics, chemistry  
@@ -28,24 +32,58 @@ Through **Firmware AI**, I envision devices with local intelligence, borrowing m
 
 ---
 
-## 📚 Current Projects
+# 📚 Current Projects
 
-- **Local Mini AI Project** → A mobile app testing local intelligence through conditional and iterative structures.  
-- **Offline-First SaaS for the South** → A sustainable platform for digitalization in underserved regions, built on Raspberry Pi.  
+### 📱 Local Mini AI Project  
+A mobile app testing local intelligence through conditional and iterative structures.  
+It explores probability, statistics, and machine learning at the device level.  
+**Explore →**  
+[{{ site.baseurl }}/applied-works/local-mini-ai/]( {{ site.baseurl }}/applied-works/local-mini-ai/ )
+
+### 🌍 Offline-First SaaS for the South  
+A sustainable platform for digitalization in underserved regions, built on Raspberry Pi.  
+It applies Firmware AI to reduce cloud dependency and improve digital resilience.  
+**Explore →**  
+[{{ site.baseurl }}/applied-works/offline-first-saas/]( {{ site.baseurl }}/applied-works/offline-first-saas/ )
 
 ---
 
-## 🌱 Philosophy
+# 🌱 Philosophy
 
-Technology must respect its maker — humans — and the environment — Earth.  
-Every project I build is designed with responsibility, sustainability, and equity at its core.
+Technology must respect its maker — **humans** — and the environment — **Earth**.  
+Every project I build is designed with responsibility, sustainability, and equity at its core.  
+Ethics and ecology are not optional add-ons; they are the **firmware of innovation**.
 
 ---
 
-## 📬 Contact
+# 📝 Personal Feed  
+### Updates, reflections, and personal notes
 
-- **Email:** [your-email@example.com]  
-- **GitHub:** [https://github.com/your-username](https://github.com/your-username)  
-- **Blog:** [Home](/Home/)  
+{% assign about_posts = site.about-me | sort: "date" | reverse %}
+
+<div class="feed">
+  {% for post in about_posts %}
+    <div class="card">
+      {% if post.thumbnail %}
+        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+      {% endif %}
+ <div class="content">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.resume }}</p>
+ <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+          Read full post →
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+---
+
+# 📬 Contact
+
+- **Email:** louisnathanessomba@gmail.com  
+- **GitHub:** https://github.com/louisnathanessomba  
+- **Blog Home:** [{{ site.baseurl }}/]( {{ site.baseurl }}/ )
 
 Feel free to reach out for collaboration, discussion, or mentorship.
