@@ -1,31 +1,67 @@
 ---
 layout: section
-title: Everyday Insights
-subtitle: Student life tips and commentary on news
+title: "Everyday Insights"
+subtitle: "Student life tips and commentary on news"
+permalink: /everyday-insights/
 ---
 
 # Everyday Insights — Life & Reflections
 
-This division shares personal experiences and opinions beyond the thesis and projects.  
-It is divided into two subsections: **Student Life Tips** (practical advice from my journey as a student) and **Me Too** (opinions and reflections on current news).
+Everyday Insights is the most personal division of the blog.  
+It gathers reflections from my student life, practical strategies for productivity and balance, and commentary on news or events that resonate with my vision of responsible innovation.
+
+Below, you’ll find two curated feeds:
+- **Student Life Tips** → practical advice, study methods, productivity, balance  
+- **Me Too** → opinions and reflections on news and societal issues  
+
+Each post includes a visual asset, a short resume, and a link to the full form.
 
 ---
 
-## 🎓 Student Life Tips
+# 🎓 Student Life Tips  
+### Practical strategies from my journey as a scientific student
 
-Here I share strategies, methods, and reflections from my student life in the scientific department.  
-Posts will cover productivity, study methods, and balancing research with everyday life.
+{% assign tips_posts = site.everyday-insights | where_exp: "item", "item.categories contains 'student-life-tips'" | sort: 'date' | reverse %}
 
-- [Productivity](/Everyday-Insights/Student-Life-Tips/productivity/)  
-- [Study Methods](/Everyday-Insights/Student-Life-Tips/study-methods/)  
-- [Balance](/Everyday-Insights/Student-Life-Tips/balance/)
+<div class="feed">
+  {% for post in tips_posts %}
+    <div class="card">
+      {% if post.thumbnail %}
+        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+      {% endif %}
+
+      <div class="content">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.resume }}</p>
+
+        <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+          Read full post →
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
 
 ---
 
-## 📰 Me Too
+# 📰 Me Too  
+### Opinions and reflections on news and events
 
-This subsection contains my opinions and reflections on news and events.  
-It is a space to connect broader societal issues with my vision of responsible innovation.
+{% assign me_too_posts = site.everyday-insights | where_exp: "item", "item.categories contains 'me-too'" | sort: 'date' | reverse %}
 
-- [Opinion on News](/Everyday-Insights/Me-Too/opinion-news/)  
-- [Reflections](/Everyday-Insights/Me-Too/reflections/)
+<div class="feed">
+  {% for post in me_too_posts %}
+    <div class="card">
+      {% if post.thumbnail %}
+        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+      {% endif %}
+<div class="content">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.resume }}</p>
+<a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+          Read full reflection →
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
