@@ -1,45 +1,76 @@
 ---
 title: "Foundations"
+subtitle: "Thesis & Conceptual Frameworks"
 layout: section
 permalink: /foundations/
-subtitle: Thesis & Vision
 ---
 
 # Foundations — The Core of Firmware AI
 
-This section presents the **Firmware AI thesis** and the broader vision guiding all my projects.  
-Here, I explain the paradigm: AI embedded as firmware in devices, borrowing models from the cloud as a temporary library of algorithms, always with respect for ethics and ecology.
+The Foundations section gathers the **theoretical backbone** of the entire blog.  
+Here you’ll find the **Firmware AI thesis**, conceptual frameworks, and the vision that guides all applied projects and research explorations.
+
+Each essay below includes:
+- A short **resume** of the idea  
+- An optional **visual cue**  
+- A link to the **full essay**  
 
 ---
 
-## 📜 Key Essays
+## 📘 Key Essays
 
-- [Firmware AI Thesis](/foundations/firmware-ai-thesis/)  
-  The central essay: AI as device intelligence, cloud as algorithm library, and the implications for dependency, sustainability, and democratization.
+### 1. Firmware AI Thesis  
+**Visual:** 🧩  
+**Resume:**  
+This essay introduces the central paradigm of the blog: **AI as firmware**, embedded directly into devices, borrowing models from the cloud as a temporary algorithm library. It explores dependency, sustainability, democratization, and the shift from cloud‑centric to device‑centric intelligence.  
+**Read full essay →**  
+[{{ site.baseurl }}/foundations/firmware-ai-thesis/]( {{ site.baseurl }}/foundations/firmware-ai-thesis/ )
 
-- [Vision Statement](/foundations/vision/)  
-  A forward-looking statement on how Firmware AI can reshape technology for humanity and the planet.
+---
+
+### 2. Vision Statement  
+**Visual:** 🌍  
+**Resume:**  
+A forward‑looking reflection on how Firmware AI can reshape the technological landscape. This essay outlines a future where intelligence is local, sustainable, equitable, and aligned with human and ecological needs.  
+**Read full essay →**  
+[{{ site.baseurl }}/foundations/vision/]( {{ site.baseurl }}/foundations/vision/ )
 
 ---
 
 ## 🔗 Connections to Applied Works
 
-The thesis is tested through real-world projects:
+These essays directly support the real‑world projects in the Applied Works division:
 
-- [Local Mini AI Project](/Applied-Works/local-mini-ai/)  
-  A mobile app experimenting with local intelligence via conditional and iterative structures.
+### Local Mini AI Project  
+**Visual:** 📱  
+**Resume:**  
+A mobile application built with classmates to test local intelligence through conditional and iterative structures. It demonstrates how Firmware AI principles can be applied at the device level.  
+**Explore the project →**  
+[{{ site.baseurl }}/applied-works/local-mini-ai/]( {{ site.baseurl }}/applied-works/local-mini-ai/ )
 
-- [Offline-First SaaS for the South](/Applied-Works/offline-first-saas/)  
-  A sustainable platform for digitalization in Africa and South America, built on Raspberry Pi.
+### Offline‑First SaaS for the South  
+**Visual:** 🌐  
+**Resume:**  
+A sustainable SaaS platform designed for Africa and South America, powered by a Raspberry Pi hub. It applies Firmware AI to reduce cloud dependency and improve digital resilience.  
+**Explore the project →**  
+[{{ site.baseurl }}/applied-works/offline-first-saas/]( {{ site.baseurl }}/applied-works/offline-first-saas/ )
 
 ---
 
 ## 🌌 Links to Exploring Frontiers
 
-The thesis is enriched by independent research and comparative analysis:
+The Foundations essays are enriched by deeper research and comparative analysis:
 
-- [Independently Search](/Exploring-Frontiers/Independently-Search/)  
-  Deep dives into mathematics, physics, chemistry, computer science, and philosophy.
+### Independently Search  
+**Visual:** 🔬  
+**Resume:**  
+A collection of independent explorations in mathematics, physics, chemistry, computer science, and philosophy — all feeding into the conceptual depth of the thesis.  
+**Visit the section →**  
+[{{ site.baseurl }}/exploring-frontiers/independently-search/]( {{ site.baseurl }}/exploring-frontiers/independently-search/ )
 
-- [Companies Threads](/Exploring-Frontiers/Companies-Threads/)  
-  Comparative reflections on Microsoft, Google, Tesla, and other tech leaders in AI, Big Data, and cloud computing.
+### Companies Threads  
+**Visual:** 🏢  
+**Resume:**  
+Comparative reflections on Microsoft, Google, Tesla, and other tech leaders. These essays analyze how industry visions align or conflict with the Firmware AI paradigm.  
+**Visit the section →**  
+[{{ site.baseurl }}/exploring-frontiers/companies-threads/]( {{ site.baseurl }}/exploring-frontiers/companies-threads/ )
