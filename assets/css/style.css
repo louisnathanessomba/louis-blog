@@ -22,6 +22,16 @@
 }
 
 /* ============================================================
+   DIVISION ACCENT SYSTEM (auto-applied via <body class="...">)
+   ============================================================ */
+body.foundations { --accent: var(--accent-foundations); }
+body.applied-works { --accent: var(--accent-applied); }
+body.exploring-frontiers { --accent: var(--accent-frontiers); }
+body.ethics-and-ecology { --accent: var(--accent-ethics); }
+body.everyday-insights { --accent: var(--accent-insights); }
+body.about-me { --accent: var(--accent-about); }
+
+/* ============================================================
    GLOBAL RESET & BASE
    ============================================================ */
 * { box-sizing: border-box; }
@@ -76,6 +86,8 @@ html, body {
 .post-header h1 {
   margin: 0 0 0.5rem;
   font-size: 2rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 0.5rem;
 }
 
 .subtitle {
@@ -101,8 +113,8 @@ html, body {
   margin-right: 0.5rem;
   padding: 0.2rem 0.5rem;
   border-radius: var(--radius);
-  background: var(--border);
-  color: var(--fg);
+  background: var(--accent);
+  color: #000;
   font-size: 0.85rem;
   text-decoration: none;
 }
@@ -129,7 +141,7 @@ html, body {
 }
 
 /* ============================================================
-   HERO (HOME ONLY)
+   HYBRID HERO (HOME ONLY)
    ============================================================ */
 .hero {
   display: flex;
@@ -157,6 +169,7 @@ html, body {
 .hero-right h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
+  color: var(--accent);
 }
 
 .hero-right p {
@@ -193,6 +206,11 @@ html, body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg-alt);
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--accent);
 }
 
 .card .thumb {
