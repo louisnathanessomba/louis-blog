@@ -1,32 +1,64 @@
 ---
 layout: section
-title: Applied Works
-subtitle: Data-driven projects applying the thesis
+title: "Applied Works"
+subtitle: "Data-driven projects applying the thesis"
+permalink: /applied-works/
 ---
 
 # Applied Works — Proofs of Concept
 
-This section gathers projects that apply the **Firmware AI thesis** in real-world contexts.  
-Each project is divided into multiple posts: an introduction, technical details, and ethical–ecological reflections.
+Applied Works gathers all projects that bring the **Firmware AI thesis** into real-world contexts.  
+Each project is structured into multiple posts — introduction, technical details, and ethical–ecological reflections — forming a complete, transparent documentation of the work.
+
+Below, you’ll find a dynamic feed of all Applied Works posts, grouped by project.  
+Each card includes a visual asset, a short resume, and a link to the full post.
 
 ---
 
-## 📱 Local Mini AI Project
+# 📱 Local Mini AI Project  
+### A mobile experiment in local intelligence
 
-A mobile application built with classmates to test local intelligence through conditional and iterative structures.  
-It binds tasks, budgets, and communication via a local savvy, exploring probability, statistics, and machine learning at the device level.
+{% assign local_posts = site.applied-works | where_exp: "item", "item.categories contains 'local-mini-ai'" | sort: 'date' | reverse %}
 
-- [Intro](/Applied-Works/local-mini-ai/intro/)  
-- [Technical Details](/Applied-Works/local-mini-ai/technical-details/)  
-- [Ethical–Ecological Thoughts](/Applied-Works/local-mini-ai/ethical-ecological/)
+<div class="feed">
+  {% for post in local_posts %}
+    <div class="card">
+      {% if post.thumbnail %}
+        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+      {% endif %}
+
+      <div class="content">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.resume }}</p>
+
+        <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+          Read full post →
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
 
 ---
 
-## 🌍 Offline-First SaaS for the South
+# 🌍 Offline-First SaaS for the South  
+### A sustainable platform for Africa and South America
 
-A sustainable SaaS platform designed for Africa and South America.  
-It offers services in selling management, online purchasing, energy monitoring, and predictive maintenance — all orchestrated by a **Firmware AI** running on a Raspberry Pi hub owned by the customer.
+{% assign saas_posts = site.applied-works | where_exp: "item", "item.categories contains 'offline-first-saas'" | sort: 'date' | reverse %}
 
-- [Intro](/Applied-Works/offline-first-saas/intro/)  
-- [Technical Details](/Applied-Works/offline-first-saas/technical-details/)  
-- [Ethical–Ecological Thoughts](/Applied-Works/offline-first-saas/ethical-ecological/)
+<div class="feed">
+  {% for post in saas_posts %}
+    <div class="card">
+      {% if post.thumbnail %}
+        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+      {% endif %}
+<div class="content">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.resume }}</p>
+<a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+          Read full post →
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
