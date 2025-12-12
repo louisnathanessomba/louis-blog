@@ -1,67 +1,115 @@
+/* ============================================================
+   ROOT THEME — GLOBAL COLORS & TYPOGRAPHY
+   ============================================================ */
 :root {
-  --bg: #0f0f10;
-  --fg: #e8e8e8;
-  --muted: #b5b5b5;
+  --bg: #0f0f10;          /* carbon black */
+  --bg-alt: #111;         /* slightly lighter black */
+  --fg: #e8e8e8;          /* computer gray */
+  --muted: #b5b5b5;       /* soft gray */
+  --border: #262626;      /* carbon border */
+  --radius: 8px;
+
+  /* Division-specific accents */
+  --accent-foundations: #4da6ff;        /* blue */
+  --accent-applied: #ffb84d;            /* orange */
+  --accent-frontiers: #b84dff;          /* purple */
+  --accent-ethics: #6ddf6d;             /* green */
+  --accent-insights: #ff6d6d;           /* red */
+  --accent-about: #ffd24d;              /* yellow */
+
+  /* Default accent (fallback) */
   --accent: #606060;
-  --border: #262626;
 }
 
+/* ============================================================
+   GLOBAL RESET & BASE
+   ============================================================ */
 * { box-sizing: border-box; }
+
 html, body {
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   background: var(--bg);
   color: var(--fg);
   font-family: Inter, Roboto, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
   line-height: 1.6;
 }
 
-/* Navigation */
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
 .nav {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   padding: 1rem;
   border-bottom: 1px solid var(--border);
-  background: #111;
+  background: var(--bg-alt);
 }
+
 .nav a {
   color: var(--fg);
   text-decoration: none;
   font-weight: 500;
   opacity: 0.85;
+  padding-bottom: 2px;
 }
+
 .nav a:hover {
   opacity: 1;
   border-bottom: 2px solid var(--accent);
 }
 
-/* Container */
+/* ============================================================
+   CONTAINER
+   ============================================================ */
 .container {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
-/* Section headers */
-.section-header h1, .post-header h1 {
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.section-header h1,
+.post-header h1 {
   margin: 0 0 0.5rem;
   font-size: 2rem;
 }
+
 .subtitle {
   color: var(--muted);
   font-size: 1.1rem;
 }
 
-/* Posts */
+/* ============================================================
+   POSTS
+   ============================================================ */
 .post .meta {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
 .post-content {
   margin-top: 1rem;
 }
 
-/* Footer */
+/* Tags */
+.post-tags .tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius);
+  background: var(--border);
+  color: var(--fg);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 1rem;
@@ -69,40 +117,69 @@ html, body {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
 .footer-links a {
   color: var(--fg);
   text-decoration: none;
   margin: 0 0.5rem;
 }
+
 .footer-links a:hover {
   border-bottom: 1px solid var(--accent);
 }
 
-/* Hero section (Home only) */
+/* ============================================================
+   HERO (HOME ONLY)
+   ============================================================ */
 .hero {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   padding: 3rem 1rem;
-  background: #111;
+  background: var(--bg-alt);
+  align-items: center;
+  justify-content: center;
+  text-align: left;
 }
-.hero h1 {
+
+.hero-left img.hero-portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+.hero-right {
+  max-width: 500px;
+}
+
+.hero-right h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
-.hero p {
+
+.hero-right p {
   color: var(--muted);
   font-size: 1.2rem;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .hero h1 { font-size: 2rem; }
-  .container { padding: 0.5rem; }
+.hero-video video {
+  margin-top: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
 }
+
+.hero-diagram img {
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* ============================================================
+   FEED (SECTION INDEXES)
+   ============================================================ */
 .feed {
   display: flex;
   flex-direction: column;
@@ -114,15 +191,15 @@ html, body {
   gap: 1.5rem;
   padding: 1.5rem;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--bg);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
 }
 
 .card .thumb {
   width: 140px;
   height: 140px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: var(--radius);
 }
 
 .card .content h2 {
@@ -134,4 +211,37 @@ html, body {
   margin-top: 0.5rem;
   color: var(--accent);
   font-weight: 600;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 600px) {
+  .nav {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero-right h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card .thumb {
+    width: 100%;
+    height: auto;
+  }
 }
