@@ -1,26 +1,53 @@
 ---
 layout: default
 ---
+
 <section class="section">
+
+  <!-- ========================= -->
+  <!-- SECTION HEADER -->
+  <!-- ========================= -->
   <header class="section-header">
     <h1>{{ page.title }}</h1>
+
     {% if page.subtitle %}
       <p class="subtitle">{{ page.subtitle }}</p>
     {% endif %}
   </header>
 
+  <!-- ========================= -->
+  <!-- MAIN SECTION CONTENT -->
+  <!-- ========================= -->
   <div class="section-content">
     {{ content }}
   </div>
 
+  <!-- ========================= -->
+  <!-- OPTIONAL FEED BLOCK -->
+  <!-- (Your loops will appear here) -->
+  <!-- ========================= -->
+  {% if page.feed %}
+    <div class="section-feed">
+      {{ page.feed }}
+    </div>
+  {% endif %}
+
+  <!-- ========================= -->
+  <!-- OPTIONAL "EXPLORE MORE" LINKS -->
+  <!-- ========================= -->
   {% if page.links %}
     <nav class="section-links">
       <h2>Explore More</h2>
       <ul>
         {% for link in page.links %}
-          <li><a href="{{ link.url | relative_url }}">{{ link.name }}</a></li>
+          <li>
+            <a href="{{ link.url | relative_url }}">
+              {{ link.name }}
+            </a>
+          </li>
         {% endfor %}
       </ul>
     </nav>
   {% endif %}
+
 </section>
