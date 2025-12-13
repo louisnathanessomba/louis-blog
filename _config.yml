@@ -52,24 +52,27 @@ theme:
     max_width: 900
 
 # ============================================================
-# NAVIGATION (dynamic with baseurl)
+# NAVIGATION (do NOT use Liquid in _config; expand baseurl in templates)
 # ============================================================
 nav:
   - name: "Foundations"
-    url: "{{ site.baseurl }}/foundations/"
+    url: "/foundations/"
   - name: "Applied Works"
-    url: "{{ site.baseurl }}/applied-works/"
+    url: "/applied-works/"
   - name: "Exploring Frontiers"
-    url: "{{ site.baseurl }}/exploring-frontiers/"
+    url: "/exploring-frontiers/"
   - name: "Ethics & Ecology"
-    url: "{{ site.baseurl }}/ethics-and-ecology/"
+    url: "/ethics-and-ecology/"
   - name: "Everyday Insights"
-    url: "{{ site.baseurl }}/everyday-insights/"
+    url: "/everyday-insights/"
   - name: "About Me"
-    url: "{{ site.baseurl }}/about-me/"
+    url: "/about-me/"
 
 # ============================================================
 # COLLECTIONS (each division)
+# NOTE: collection keys with hyphens require bracket access in Liquid:
+#   site["ethics-and-ecology"]  (cannot use site.ethics-and-ecology)
+# Consider renaming to underscores if you prefer dot-notation.
 # ============================================================
 collections:
   foundations:
@@ -139,13 +142,14 @@ defaults:
       layout: section
       categories: ["about-me"]
 
-  # Collection documents (posts)
+  # Collection documents (posts) — added views default to avoid sorting issues
   - scope:
       path: ""
       type: "foundations"
     values:
       layout: post
       categories: ["foundations"]
+      views: 0
 
   - scope:
       path: ""
@@ -153,6 +157,7 @@ defaults:
     values:
       layout: post
       categories: ["applied-works"]
+      views: 0
 
   - scope:
       path: ""
@@ -160,6 +165,7 @@ defaults:
     values:
       layout: post
       categories: ["exploring-frontiers"]
+      views: 0
 
   - scope:
       path: ""
@@ -167,6 +173,7 @@ defaults:
     values:
       layout: post
       categories: ["ethics-and-ecology"]
+      views: 0
 
   - scope:
       path: ""
@@ -174,6 +181,7 @@ defaults:
     values:
       layout: post
       categories: ["everyday-insights"]
+      views: 0
 
   - scope:
       path: ""
@@ -181,6 +189,7 @@ defaults:
     values:
       layout: post
       categories: ["about-me"]
+      views: 0
 
 # ============================================================
 # PLUGINS (GitHub Pages supported only)
@@ -224,12 +233,14 @@ include:
 
 # ============================================================
 # CUSTOM VARIABLES
+# NOTE: Do not include Liquid tags here; templates should prepend baseurl, e.g.:
+#   <a href="{{ site.baseurl }}{{ item.url }}">{{ item.name }}</a>
 # ============================================================
 site_links:
-  home: "{{ site.baseurl }}/"
-  foundations: "{{ site.baseurl }}/foundations/"
-  applied_works: "{{ site.baseurl }}/applied-works/"
-  exploring_frontiers: "{{ site.baseurl }}/exploring-frontiers/"
-  ethics_ecology: "{{ site.baseurl }}/ethics-and-ecology/"
-  everyday_insights: "{{ site.baseurl }}/everyday-insights/"
-  about_me: "{{ site.baseurl }}/about-me/"
+  home: "/"
+  foundations: "/foundations/"
+  applied_works: "/applied-works/"
+  exploring_frontiers: "/exploring-frontiers/"
+  ethics_ecology: "/ethics-and-ecology/"
+  everyday_insights: "/everyday-insights/"
+  about_me: "/about-me/"
