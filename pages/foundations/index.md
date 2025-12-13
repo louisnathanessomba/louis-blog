@@ -1,7 +1,7 @@
 ---
 title: "Foundations"
 subtitle: "Thesis & Conceptual Frameworks"
-layout: default
+layout: section
 permalink: /foundations/
 ---
 
@@ -20,15 +20,20 @@ Each card includes a visual asset, a short resume, and a link to the full form.
 <div class="feed">
   {% for post in items %}
     <div class="card">
-      <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
-      <div class="content">
+{% if post.thumbnail %}
+        <img src="{{ post.thumbnail | relative_url }}" 
+             alt="{{ post.title }} thumbnail" 
+             class="thumb" loading="lazy">
+      {% endif %}
+ <div class="content">
         <h2>{{ post.title }}</h2>
-        <p>{{ post.resume }}</p>
-        <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+{% if post.resume %}
+          <p>{{ post.resume }}</p>
+        {% endif %}
+<a class="read-more" href="{{ post.url | relative_url }}">
           Read full essay →
         </a>
       </div>
-    </div>
+</div>
   {% endfor %}
 </div>
-    
