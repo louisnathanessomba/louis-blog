@@ -1,7 +1,7 @@
 ---
 title: "Foundations"
 subtitle: "Thesis & Conceptual Frameworks"
-layout: section
+layout: default
 permalink: /foundations/
 ---
 
