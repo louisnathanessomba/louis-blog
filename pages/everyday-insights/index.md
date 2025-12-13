@@ -21,23 +21,33 @@ Each post includes a visual asset, a short resume, and a link to the full form.
 # 🎓 Student Life Tips  
 ### Practical strategies from my journey as a scientific student
 
-{% assign tips_posts = site.everyday-insights | where_exp: "item", "item.categories contains 'student-life-tips'" | sort: 'date' | reverse %}
+{% assign tips_posts = site["everyday-insights"] 
+     | where_exp: "item", "item.categories contains 'student-life-tips'" 
+     | sort: "date" 
+     | reverse %}
 
 <div class="feed">
   {% for post in tips_posts %}
     <div class="card">
+
       {% if post.thumbnail %}
-        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+        <img src="{{ post.thumbnail | relative_url }}" 
+             alt="{{ post.title }} thumbnail" 
+             class="thumb" loading="lazy">
       {% endif %}
 
       <div class="content">
         <h2>{{ post.title }}</h2>
-        <p>{{ post.resume }}</p>
 
-        <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+        {% if post.resume %}
+          <p>{{ post.resume }}</p>
+        {% endif %}
+
+        <a class="read-more" href="{{ post.url | relative_url }}">
           Read full post →
         </a>
       </div>
+
     </div>
   {% endfor %}
 </div>
@@ -47,18 +57,25 @@ Each post includes a visual asset, a short resume, and a link to the full form.
 # 📰 Me Too  
 ### Opinions and reflections on news and events
 
-{% assign me_too_posts = site.everyday-insights | where_exp: "item", "item.categories contains 'me-too'" | sort: 'date' | reverse %}
+{% assign me_too_posts = site["everyday-insights"] 
+     | where_exp: "item", "item.categories contains 'me-too'" 
+     | sort: "date" 
+     | reverse %}
 
 <div class="feed">
   {% for post in me_too_posts %}
     <div class="card">
-      {% if post.thumbnail %}
-        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+{% if post.thumbnail %}
+        <img src="{{ post.thumbnail | relative_url }}" 
+             alt="{{ post.title }} thumbnail" 
+             class="thumb" loading="lazy">
       {% endif %}
 <div class="content">
         <h2>{{ post.title }}</h2>
-        <p>{{ post.resume }}</p>
-<a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+ {% if post.resume %}
+          <p>{{ post.resume }}</p>
+        {% endif %}
+ <a class="read-more" href="{{ post.url | relative_url }}">
           Read full reflection →
         </a>
       </div>
