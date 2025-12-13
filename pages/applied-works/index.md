@@ -1,81 +1,82 @@
 ---
 layout: section
 title: "Applied Works"
-subtitle: "Data-driven projects applying the thesis"
+subtitle: "Proofs of Concept"
 permalink: /applied-works/
 ---
 
-# Applied Works — Proofs of Concept
+<!-- ============================================================
+     SECTION HERO — PORTRAIT + MYTHIC SUBTITLE + DESCRIPTION
+     ============================================================ -->
+<section class="section-hero">
 
-Applied Works gathers all projects that bring the **Firmware AI thesis** into real-world contexts.  
-Each project is structured into multiple posts — introduction, technical details, and ethical–ecological reflections — forming a complete, transparent documentation of the work.
+  <div class="section-hero-center">
+ <img src="{{ '/assets/images/me/working.jpg' | relative_url }}"
+         alt="Louis Nathan Essomba working on computer"
+         class="section-portrait"
+         loading="lazy">
+<h1 class="section-title-hero">Applied Works</h1>
+<p class="section-subtitle-hero">
+      “Where ideas leave the page and become living systems.”
+    </p>
+<p class="section-description">
+      Applied Works gathers all my real‑world experiments built from the Firmware AI thesis.
+      Each project is a complete ecosystem: an introduction to the idea, a deep dive into the
+      technical architecture, and a reflection on the ethical and ecological implications.
+      This section is where theory becomes practice — where intelligence is tested, measured,
+      and shaped into something useful, sustainable, and human‑centered.
+    </p>
 
-Below, you’ll find a dynamic feed of all Applied Works posts, grouped by project.  
-Each card includes a visual asset, a short resume, and a link to the full post.
+  </div>
 
----
-
-# 📱 Local Mini AI Project  
-### A mobile experiment in local intelligence
-
-{% assign local_posts = site["applied-works"] 
-     | where_exp: "item", "item.categories contains 'local-mini-ai'" 
-     | sort: "date" 
-     | reverse %}
-
-<div class="feed">
-  {% for post in local_posts %}
-    <div class="card">
-
-      {% if post.thumbnail %}
-        <img src="{{ post.thumbnail | relative_url }}" 
-             alt="{{ post.title }} thumbnail" 
-             class="thumb" loading="lazy">
-      {% endif %}
-
-      <div class="content">
-        <h2>{{ post.title }}</h2>
-
-        {% if post.resume %}
-          <p>{{ post.resume }}</p>
-        {% endif %}
-
-        <a class="read-more" href="{{ post.url | relative_url }}">
-          Read full post →
-        </a>
-      </div>
-
-    </div>
-  {% endfor %}
-</div>
+</section>
 
 ---
 
-# 🌍 Offline-First SaaS for the South  
-### A sustainable platform for Africa and South America
+<!-- ============================================================
+     PROJECT FEED — SCROLLABLE, POLISHED, DYNAMIC
+     ============================================================ -->
+<section class="project-feed">
 
-{% assign saas_posts = site["applied-works"] 
-     | where_exp: "item", "item.categories contains 'offline-first-saas'" 
-     | sort: "date" 
-     | reverse %}
+  <h2 class="feed-title">Projects</h2>
 
-<div class="feed">
-  {% for post in saas_posts %}
-    <div class="card">
- {% if post.thumbnail %}
-        <img src="{{ post.thumbnail | relative_url }}" 
-             alt="{{ post.title }} thumbnail" 
-             class="thumb" loading="lazy">
-      {% endif %}
-  <div class="content">
-        <h2>{{ post.title }}</h2>
- {% if post.resume %}
-          <p>{{ post.resume }}</p>
+  <div class="project-feed-scroll">
+ {% assign projects = site["applied-works"] | group_by: "project" %}
+{% for project in projects %}
+ {% assign posts = project.items %}
+      {% assign intro = posts | where: "type", "intro" | first %}
+      {% assign tech = posts | where: "type", "technical" | first %}
+      {% assign ethics = posts | where: "type", "ethical" | first %}
+<div class="project-card">
+ <!-- Thumbnail / Asset -->
+        {% if intro.thumbnail %}
+          <img src="{{ intro.thumbnail | relative_url }}" class="project-thumb">
+        {% else %}
+          <img src="{{ '/assets/images/defaults/project.png' | relative_url }}" class="project-thumb">
         {% endif %}
-<a class="read-more" href="{{ post.url | relative_url }}">
-          Read full post →
-        </a>
-      </div>
+<!-- Project Content -->
+        <div class="project-content">
+   <h3 class="project-title">{{ project.name }}</h3>
+{% if intro.resume %}
+            <p class="project-resume">{{ intro.resume }}</p>
+          {% endif %}
+<div class="project-links">
+            {% if intro %}
+              <a href="{{ intro.url | relative_url }}" class="project-link">Introduction →</a>
+            {% endif %}
+            {% if tech %}
+              <a href="{{ tech.url | relative_url }}" class="project-link">Technical Details →</a>
+            {% endif %}
+            {% if ethics %}
+              <a href="{{ ethics.url | relative_url }}" class="project-link">Ethical & Ecological →</a>
+            {% endif %}
+          </div>
+
+ </div>
 </div>
-  {% endfor %}
-</div>
+
+ {% endfor %}
+
+  </div>
+
+</section>
