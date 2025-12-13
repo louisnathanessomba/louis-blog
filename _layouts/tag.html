@@ -4,10 +4,16 @@ layout: default
 
 <section class="section">
 
+  <!-- ========================= -->
+  <!-- TAG HEADER -->
+  <!-- ========================= -->
   <header class="section-header">
     <h1>Tag: {{ page.tag }}</h1>
   </header>
 
+  <!-- ========================= -->
+  <!-- TAG FEED -->
+  <!-- ========================= -->
   <div class="feed">
     {% assign tagged_posts = site.tags[page.tag] | sort: "date" | reverse %}
     {% for post in tagged_posts %}
