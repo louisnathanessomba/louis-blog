@@ -38,13 +38,13 @@ Through **Firmware AI**, I envision devices with local intelligence, borrowing m
 A mobile app testing local intelligence through conditional and iterative structures.  
 It explores probability, statistics, and machine learning at the device level.  
 **Explore →**  
-[{{ site.baseurl }}/applied-works/local-mini-ai/]( {{ site.baseurl }}/applied-works/local-mini-ai/ )
+[Visit project]({{ '/applied-works/local-mini-ai/' | relative_url }})
 
 ### 🌍 Offline-First SaaS for the South  
 A sustainable platform for digitalization in underserved regions, built on Raspberry Pi.  
 It applies Firmware AI to reduce cloud dependency and improve digital resilience.  
 **Explore →**  
-[{{ site.baseurl }}/applied-works/offline-first-saas/]( {{ site.baseurl }}/applied-works/offline-first-saas/ )
+[Visit project]({{ '/applied-works/offline-first-saas/' | relative_url }})
 
 ---
 
@@ -59,22 +59,26 @@ Ethics and ecology are not optional add-ons; they are the **firmware of innovati
 # 📝 Personal Feed  
 ### Updates, reflections, and personal notes
 
-{% assign about_posts = site.about-me | sort: "date" | reverse %}
+{% assign about_posts = site["about-me"] | sort: "date" | reverse %}
 
 <div class="feed">
   {% for post in about_posts %}
     <div class="card">
-      {% if post.thumbnail %}
-        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+{% if post.thumbnail %}
+        <img src="{{ post.thumbnail | relative_url }}" 
+             alt="{{ post.title }} thumbnail" 
+             class="thumb" loading="lazy">
       {% endif %}
- <div class="content">
+<div class="content">
         <h2>{{ post.title }}</h2>
-        <p>{{ post.resume }}</p>
- <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+  {% if post.resume %}
+          <p>{{ post.resume }}</p>
+        {% endif %}
+ <a class="read-more" href="{{ post.url | relative_url }}">
           Read full post →
         </a>
       </div>
-    </div>
+</div>
   {% endfor %}
 </div>
 
@@ -84,6 +88,6 @@ Ethics and ecology are not optional add-ons; they are the **firmware of innovati
 
 - **Email:** louisnathanessomba@gmail.com  
 - **GitHub:** https://github.com/louisnathanessomba  
-- **Blog Home:** [{{ site.baseurl }}/]( {{ site.baseurl }}/ )
+- **Blog Home:** [Home]({{ '/' | relative_url }})
 
 Feel free to reach out for collaboration, discussion, or mentorship.
