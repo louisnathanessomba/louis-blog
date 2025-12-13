@@ -1,83 +1,139 @@
 ---
 layout: section
 title: "Exploring Frontiers"
-subtitle: "Independent research and company vision threads"
+subtitle: "Research & Comparative Analysis"
 permalink: /exploring-frontiers/
 ---
 
-# Exploring Frontiers — Research & Comparative Analysis
+<!-- ============================================================
+     SECTION HERO — PORTRAIT + MYTHIC SUBTITLE + DESCRIPTION
+     ============================================================ -->
+<section class="section-hero">
 
-Exploring Frontiers is the division where I push beyond the core thesis and dive into the **scientific, philosophical, and industrial landscapes** that shape the future of technology.  
-It is structured into two complementary subsections:
+  <div class="section-hero-center">
 
-- **Independently Search** → deep dives into mathematics, physics, chemistry, computer science, and philosophy  
-- **Companies Threads** → comparative analyses of major tech companies and their visions  
+<img src="{{ '/assets/images/me/thinking.jpg' | relative_url }}"
+         alt="Louis Nathan Essomba thinking"
+         class="section-portrait"
+         loading="lazy">
 
-Below is a curated feed of all posts from both subsections, each presented with a visual asset, a short resume, and a link to the full essay.
+<h1 class="section-title-hero">Exploring Frontiers</h1>
+
+<p class="section-subtitle-hero">
+      “Where curiosity meets the unknown, and ideas become discoveries.”
+    </p>
+
+<p class="section-description">
+      Exploring Frontiers is my research space — a place where I dive into the scientific,
+      philosophical, and technological foundations that enrich the Firmware AI thesis.
+      This division is split into two complementary paths: <strong>Independently Search</strong>,
+      where I explore core disciplines such as mathematics, physics, chemistry, computer science,
+      and philosophy; and <strong>Companies Threads</strong>, where I analyze and compare the visions
+      of major technology companies shaping the future of intelligence.
+    </p>
+
+  </div>
+
+</section>
 
 ---
 
-# 🔬 Independently Search  
-### Deep dives into scientific and philosophical foundations
+<!-- ============================================================
+     SUBSECTION 1 — INDEPENDENTLY SEARCH
+     ============================================================ -->
+<section class="subsection-feed">
 
-{% assign research_posts = site["exploring-frontiers"] 
-     | where_exp: "item", "item.categories contains 'independently-search'" 
-     | sort: "date" 
-     | reverse %}
+  <h2 class="subsection-title">Independently Search</h2>
+  <p class="subsection-summary">
+    Deep dives into scientific and philosophical disciplines — the raw material that fuels
+    the Firmware AI paradigm.
+  </p>
 
-<div class="feed">
-  {% for post in research_posts %}
-    <div class="card">
+  <a href="{{ '/exploring-frontiers/independently-search/' | relative_url }}"
+     class="subsection-link">Visit Independently Search →</a>
 
-      {% if post.thumbnail %}
-        <img src="{{ post.thumbnail | relative_url }}" 
-             alt="{{ post.title }} thumbnail" 
-             class="thumb" loading="lazy">
-      {% endif %}
+  {% assign indep_posts = site["exploring-frontiers"] | where: "subsection", "independently-search" %}
+  {% assign sorted_indep = indep_posts | sort: "date" | reverse %}
 
-      <div class="content">
-        <h2>{{ post.title }}</h2>
-
-        {% if post.resume %}
-          <p>{{ post.resume }}</p>
-        {% endif %}
-
-        <a class="read-more" href="{{ post.url | relative_url }}">
-          Read full essay →
-        </a>
-      </div>
-
+  <!-- Latest Post -->
+  {% assign latest = sorted_indep | first %}
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
     </div>
-  {% endfor %}
-</div>
+  </div>
+  {% endif %}
+
+  <!-- Most Viewed (manual selection) -->
+  {% assign most_viewed = indep_posts | where: "slug", "energy-aware-ml" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
+
+</section>
 
 ---
 
-# 🏢 Companies Threads  
-### Comparative analyses of major tech visions
+<!-- ============================================================
+     SUBSECTION 2 — COMPANIES THREADS
+     ============================================================ -->
+<section class="subsection-feed">
 
-{% assign company_posts = site["exploring-frontiers"] 
-     | where_exp: "item", "item.categories contains 'companies-threads'" 
-     | sort: "date" 
-     | reverse %}
+  <h2 class="subsection-title">Companies Threads</h2>
+  <p class="subsection-summary">
+    Comparative analyses of major technology companies — their strategies, architectures,
+    philosophies, and how they align or diverge from the Firmware AI vision.
+  </p>
 
-<div class="feed">
-  {% for post in company_posts %}
-    <div class="card">
- {% if post.thumbnail %}
-        <img src="{{ post.thumbnail | relative_url }}" 
-             alt="{{ post.title }} thumbnail" 
-             class="thumb" loading="lazy">
-      {% endif %}
- <div class="content">
-        <h2>{{ post.title }}</h2>
- {% if post.resume %}
-          <p>{{ post.resume }}</p>
-        {% endif %}
-<a class="read-more" href="{{ post.url | relative_url }}">
-          Read full analysis →
-        </a>
-      </div>
- </div>
-  {% endfor %}
-</div>
+  <a href="{{ '/exploring-frontiers/companies-threads/' | relative_url }}"
+     class="subsection-link">Visit Companies Threads →</a>
+
+  {% assign company_posts = site["exploring-frontiers"] | where: "subsection", "companies-threads" %}
+  {% assign sorted_company = company_posts | sort: "date" | reverse %}
+
+  <!-- Latest Post -->
+  {% assign latest = sorted_company | first %}
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Most Viewed (manual selection) -->
+  {% assign most_viewed = company_posts | where: "slug", "microsoft-vs-google" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
+
+</section>
