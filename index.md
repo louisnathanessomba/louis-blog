@@ -1,6 +1,6 @@
 
 ---
-layout: home
+layout: default
 title: "Firmware AI — Responsible Innovation"
 subtitle: "A living lab notebook by Louis Nathan Essomba"
 permalink: /
