@@ -11,7 +11,7 @@ permalink: /
 
 <div class="hero">
   <div class="hero-left">
-    <img src="{{ site.baseurl }}/assets/images/me/portrait.jpg" alt="Portrait of Louis Nathan Essomba" class="hero-portrait">
+    <img src="{{ site.baseurl }}/assets/images/me/portrait.jpg" alt="Portrait of Louis Nathan Essomba" class="hero-portrait" loading="lazy">
   </div>
 
   <div class="hero-right">
@@ -22,9 +22,12 @@ permalink: /
       This blog is my <strong>living lab notebook</strong> — a place where I build, test, and document the 
       <strong>Firmware AI thesis</strong>.
     </p>
-<div class="hero-video">
-      <video controls width="100%">
+    <div class="hero-video">
+      <video controls width="100%" aria-label="Welcome message from Louis Nathan Essomba" poster="{{ site.baseurl }}/assets/images/me/portrait.jpg">
         <source src="{{ site.baseurl }}/assets/videos/personal/welcome-message.mp4" type="video/mp4">
+        <!-- Add a captions file (VTT) and uncomment the track below when available -->
+        <!-- <track kind="captions" srclang="en" label="English" src="{{ site.baseurl }}/assets/videos/personal/welcome-message.vtt"> -->
+        Your browser does not support the video tag.
       </video>
     </div>
   </div>
@@ -36,11 +39,11 @@ permalink: /
 
 <div class="vision-diagram">
   <img src="{{ site.baseurl }}/assets/images/diagrams/device-cloud-firmware-ai.png" 
-       alt="Diagram of Firmware AI: device ↔ cloud as algorithm library">
+       alt="Diagram of Firmware AI: device ↔ cloud as algorithm library" loading="lazy">
 </div>
 
 > **Intelligence should live on devices.  
-> The cloud should be a library of algorithms, not a master.**
+> The cloud should be a **temporary algorithm library**, not a master.**
 
 I believe in a future where:
 
@@ -64,14 +67,25 @@ Each card includes a short description, a link to the section, and the **latest*
 [Visit section →]({{ site.baseurl }}/foundations/)
 
 {% assign f_posts = site.foundations | sort: "date" | reverse %}
-{% assign f_latest = f_posts | first %}
-{% assign f_most = site.foundations | sort: "views" | reverse | first %}
+{% if f_posts and f_posts.size > 0 %}
+  {% assign f_latest = f_posts | first %}
+  {% assign f_most = site.foundations | sort: "views" | reverse | first %}
+  **Latest:**  
+  - [{{ f_latest.title }}]({{ site.baseurl }}{{ f_latest.url }})
 
-**Latest:**  
-- [{{ f_latest.title }}]({{ site.baseurl }}{{ f_latest.url }})
+  **Most viewed:**  
+  {% if f_most %}
+  - [{{ f_most.title }}]({{ site.baseurl }}{{ f_most.url }})
+  {% else %}
+  - [{{ f_latest.title }}]({{ site.baseurl }}{{ f_latest.url }})
+  {% endif %}
+{% else %}
+  **Latest:**  
+  - (No posts yet)
 
-**Most viewed:**  
-- [{{ f_most.title }}]({{ site.baseurl }}{{ f_most.url }})
+  **Most viewed:**  
+  - (No posts yet)
+{% endif %}
 
 ---
 
@@ -80,14 +94,26 @@ Each card includes a short description, a link to the section, and the **latest*
 [Visit section →]({{ site.baseurl }}/applied-works/)
 
 {% assign a_posts = site.applied-works | sort: "date" | reverse %}
-{% assign a_latest = a_posts | first %}
-{% assign a_most = site.applied-works | sort: "views" | reverse | first %}
+{% if a_posts and a_posts.size > 0 %}
+  {% assign a_latest = a_posts | first %}
+  {% assign a_most = site.applied-works | sort: "views" | reverse | first %}
 
-**Latest:**  
-- [{{ a_latest.title }}]({{ site.baseurl }}{{ a_latest.url }})
+  **Latest:**  
+  - [{{ a_latest.title }}]({{ site.baseurl }}{{ a_latest.url }})
 
-**Most viewed:**  
-- [{{ a_most.title }}]({{ site.baseurl }}{{ a_most.url }})
+  **Most viewed:**  
+  {% if a_most %}
+  - [{{ a_most.title }}]({{ site.baseurl }}{{ a_most.url }})
+  {% else %}
+  - [{{ a_latest.title }}]({{ site.baseurl }}{{ a_latest.url }})
+  {% endif %}
+{% else %}
+  **Latest:**  
+  - (No projects yet)
+
+  **Most viewed:**  
+  - (No projects yet)
+{% endif %}
 
 ---
 
@@ -96,14 +122,26 @@ Each card includes a short description, a link to the section, and the **latest*
 [Visit section →]({{ site.baseurl }}/exploring-frontiers/)
 
 {% assign e_posts = site.exploring-frontiers | sort: "date" | reverse %}
-{% assign e_latest = e_posts | first %}
-{% assign e_most = site.exploring-frontiers | sort: "views" | reverse | first %}
+{% if e_posts and e_posts.size > 0 %}
+  {% assign e_latest = e_posts | first %}
+  {% assign e_most = site.exploring-frontiers | sort: "views" | reverse | first %}
 
-**Latest:**  
-- [{{ e_latest.title }}]({{ site.baseurl }}{{ e_latest.url }})
+  **Latest:**  
+  - [{{ e_latest.title }}]({{ site.baseurl }}{{ e_latest.url }})
 
-**Most viewed:**  
-- [{{ e_most.title }}]({{ site.baseurl }}{{ e_most.url }})
+  **Most viewed:**  
+  {% if e_most %}
+  - [{{ e_most.title }}]({{ site.baseurl }}{{ e_most.url }})
+  {% else %}
+  - [{{ e_latest.title }}]({{ site.baseurl }}{{ e_latest.url }})
+  {% endif %}
+{% else %}
+  **Latest:**  
+  - (No posts yet)
+
+  **Most viewed:**  
+  - (No posts yet)
+{% endif %}
 
 ---
 
@@ -112,14 +150,26 @@ Each card includes a short description, a link to the section, and the **latest*
 [Visit section →]({{ site.baseurl }}/ethics-and-ecology/)
 
 {% assign ee_posts = site.ethics-and-ecology | sort: "date" | reverse %}
-{% assign ee_latest = ee_posts | first %}
-{% assign ee_most = site.ethics-and-ecology | sort: "views" | reverse | first %}
+{% if ee_posts and ee_posts.size > 0 %}
+  {% assign ee_latest = ee_posts | first %}
+  {% assign ee_most = site.ethics-and-ecology | sort: "views" | reverse | first %}
 
-**Latest:**  
-- [{{ ee_latest.title }}]({{ site.baseurl }}{{ ee_latest.url }})
+  **Latest:**  
+  - [{{ ee_latest.title }}]({{ site.baseurl }}{{ ee_latest.url }})
 
-**Most viewed:**  
-- [{{ ee_most.title }}]({{ site.baseurl }}{{ ee_most.url }})
+  **Most viewed:**  
+  {% if ee_most %}
+  - [{{ ee_most.title }}]({{ site.baseurl }}{{ ee_most.url }})
+  {% else %}
+  - [{{ ee_latest.title }}]({{ site.baseurl }}{{ ee_latest.url }})
+  {% endif %}
+{% else %}
+  **Latest:**  
+  - (No posts yet)
+
+  **Most viewed:**  
+  - (No posts yet)
+{% endif %}
 
 ---
 
@@ -128,14 +178,26 @@ Each card includes a short description, a link to the section, and the **latest*
 [Visit section →]({{ site.baseurl }}/everyday-insights/)
 
 {% assign i_posts = site.everyday-insights | sort: "date" | reverse %}
-{% assign i_latest = i_posts | first %}
-{% assign i_most = site.everyday-insights | sort: "views" | reverse | first %}
+{% if i_posts and i_posts.size > 0 %}
+  {% assign i_latest = i_posts | first %}
+  {% assign i_most = site.everyday-insights | sort: "views" | reverse | first %}
 
-**Latest:**  
-- [{{ i_latest.title }}]({{ site.baseurl }}{{ i_latest.url }})
+  **Latest:**  
+  - [{{ i_latest.title }}]({{ site.baseurl }}{{ i_latest.url }})
 
-**Most viewed:**  
-- [{{ i_most.title }}]({{ site.baseurl }}{{ i_most.url }})
+  **Most viewed:**  
+  {% if i_most %}
+  - [{{ i_most.title }}]({{ site.baseurl }}{{ i_most.url }})
+  {% else %}
+  - [{{ i_latest.title }}]({{ site.baseurl }}{{ i_latest.url }})
+  {% endif %}
+{% else %}
+  **Latest:**  
+  - (No posts yet)
+
+  **Most viewed:**  
+  - (No posts yet)
+{% endif %}
 
 ---
 
@@ -144,14 +206,25 @@ Each card includes a short description, a link to the section, and the **latest*
 [Visit section →]({{ site.baseurl }}/about-me/)
 
 {% assign me_posts = site.about-me | sort: "date" | reverse %}
-{% assign me_latest = me_posts | first %}
-{% assign me_most = site.about-me | sort: "views" | reverse | first %}
+{% if me_posts and me_posts.size > 0 %}
+  {% assign me_latest = me_posts | first %}
+  {% assign me_most = site.about-me | sort: "views" | reverse | first %}
 
-**Latest:**  
-- [{{ me_latest.title }}]({{ site.baseurl }}{{ me_latest.url }})
+  **Latest:**  
+  - [{{ me_latest.title }}]({{ site.baseurl }}{{ me_latest.url }})
 
-**Most viewed:**  
-- [{{ me_most.title }}]({{ site.baseurl }}{{ me_most.url }})
+  **Most viewed:**  
+  {% if me_most %}
+  - [{{ me_most.title }}]({{ site.baseurl }}{{ me_most.url }})
+  {% else %}
+  - [{{ me_latest.title }}]({{ site.baseurl }}{{ me_latest.url }})
+  {% endif %}
+{% else %}
+  **Latest:**  
+  - (No posts yet)
+
+  **Most viewed:**  
+  - (No posts yet)
+{% endif %}
 
 ---
-
