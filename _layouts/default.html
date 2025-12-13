@@ -25,9 +25,9 @@
   <section class="hero hybrid-hero">
 
     <div class="hero-left">
-      <img src="{{ site.baseurl }}/assets/images/me/portrait.jpg"
+      <img src="{{ '/assets/images/me/portrait.jpg' | relative_url }}"
            alt="Portrait of Louis Nathan Essomba"
-           class="hero-portrait">
+           class="hero-portrait" loading="lazy">
     </div>
 
     <div class="hero-right">
@@ -35,14 +35,14 @@
       <p>{{ site.description }}</p>
 
       <div class="hero-video">
-        <video controls width="100%">
-          <source src="{{ site.baseurl }}/assets/videos/personal/welcome-message.mp4" type="video/mp4">
+        <video controls width="100%" aria-label="Welcome message from Louis Nathan Essomba" poster="{{ '/assets/images/me/portrait.jpg' | relative_url }}">
+          <source src="{{ '/assets/videos/personal/welcome-message.mp4' | relative_url }}" type="video/mp4">
         </video>
       </div>
 
       <div class="hero-diagram">
-        <img src="{{ site.baseurl }}/assets/images/diagrams/device-cloud-firmware-ai.png"
-             alt="Firmware AI conceptual diagram">
+        <img src="{{ '/assets/images/diagrams/device-cloud-firmware-ai.png' | relative_url }}"
+             alt="Firmware AI conceptual diagram" loading="lazy">
       </div>
     </div>
 
@@ -63,7 +63,7 @@
     <small>&copy; {{ site.time | date: "%Y" }} {{ site.title }} — Built with Jekyll</small>
 
     <div class="footer-links">
-      <a href="{{ site.baseurl }}/about-me/">About Me</a>
+      <a href="{{ '/about-me/' | relative_url }}">About Me</a>
       <span>•</span>
       <a href="https://github.com/{{ site.github_username }}/{{ site.repository }}">GitHub Repo</a>
     </div>
