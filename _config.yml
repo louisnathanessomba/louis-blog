@@ -52,7 +52,8 @@ theme:
     max_width: 900
 
 # ============================================================
-# NAVIGATION (do NOT use Liquid in _config; expand baseurl in templates)
+# NAVIGATION (do NOT use Liquid expressions here)
+# Render links with {{ site.baseurl }} or | relative_url in templates.
 # ============================================================
 nav:
   - name: "Foundations"
@@ -72,7 +73,7 @@ nav:
 # COLLECTIONS (each division)
 # NOTE: collection keys with hyphens require bracket access in Liquid:
 #   site["ethics-and-ecology"]  (cannot use site.ethics-and-ecology)
-# Consider renaming to underscores if you prefer dot-notation.
+# Consider renaming keys to underscores if you prefer dot-notation.
 # ============================================================
 collections:
   foundations:
