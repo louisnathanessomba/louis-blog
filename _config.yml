@@ -52,8 +52,8 @@ theme:
     max_width: 900
 
 # ============================================================
-# NAVIGATION (do NOT use Liquid expressions here)
-# Render links with {{ site.baseurl }} or | relative_url in templates.
+# NAVIGATION
+# (No Liquid here; prepend baseurl or use | relative_url in templates)
 # ============================================================
 nav:
   - name: "Foundations"
@@ -71,9 +71,8 @@ nav:
 
 # ============================================================
 # COLLECTIONS (each division)
-# NOTE: collection keys with hyphens require bracket access in Liquid:
-#   site["ethics-and-ecology"]  (cannot use site.ethics-and-ecology)
-# Consider renaming keys to underscores if you prefer dot-notation.
+# NOTE: keys with hyphens require bracket access in Liquid:
+#   site["ethics-and-ecology"]
 # ============================================================
 collections:
   foundations:
@@ -143,7 +142,7 @@ defaults:
       layout: section
       categories: ["about-me"]
 
-  # Collection documents (posts) — added views default to avoid sorting issues
+  # Collection documents (posts) — include views to support sorting
   - scope:
       path: ""
       type: "foundations"
@@ -234,8 +233,7 @@ include:
 
 # ============================================================
 # CUSTOM VARIABLES
-# NOTE: Do not include Liquid tags here; templates should prepend baseurl, e.g.:
-#   <a href="{{ site.baseurl }}{{ item.url }}">{{ item.name }}</a>
+# (No Liquid here; prepend baseurl in templates)
 # ============================================================
 site_links:
   home: "/"
