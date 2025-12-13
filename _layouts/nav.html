@@ -1,8 +1,0 @@
-<nav class="nav">
-  <ul>
-    <li><a href="{{ '/' | relative_url }}">Home</a></li>
-    {% for item in site.nav %}
-      <li><a href="{{ item.url | relative_url }}">{{ item.name }}</a></li>
-    {% endfor %}
-  </ul>
-</nav>
