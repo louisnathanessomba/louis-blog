@@ -29,8 +29,8 @@ Each post includes a visual asset, a short resume, and a link to the full essay.
 
 These reflections directly support the **Applied Works** projects:
 
-- [Local Mini AI Project]({{ site.baseurl }}/applied-works/local-mini-ai/ethical-ecological/)  
-- [Offline-First SaaS for the South]({{ site.baseurl }}/applied-works/offline-first-saas/ethical-ecological/)  
+- [Local Mini AI Project]({{ '/applied-works/local-mini-ai/ethical-ecological/' | relative_url }})  
+- [Offline-First SaaS for the South]({{ '/applied-works/offline-first-saas/ethical-ecological/' | relative_url }})  
 
 They also inform the **Foundations** of the Firmware AI thesis, ensuring that every technical decision is guided by responsibility.
 
@@ -46,21 +46,25 @@ They are the **core firmware of innovation** — the invisible layer that ensure
 # 📝 Reflections Feed  
 ### Essays on responsibility, sustainability, and human-centered innovation
 
-{% assign eco_posts = site.ethics-and-ecology | sort: "date" | reverse %}
+{% assign eco_posts = site["ethics-and-ecology"] | sort: "date" | reverse %}
 
 <div class="feed">
   {% for post in eco_posts %}
     <div class="card">
-      {% if post.thumbnail %}
-        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+ {% if post.thumbnail %}
+        <img src="{{ post.thumbnail | relative_url }}" 
+             alt="{{ post.title }} thumbnail" 
+             class="thumb" loading="lazy">
       {% endif %}
-      <div class="content">
+<div class="content">
         <h2>{{ post.title }}</h2>
-        <p>{{ post.resume }}</p>
-<a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+{% if post.resume %}
+          <p>{{ post.resume }}</p>
+        {% endif %}
+<a class="read-more" href="{{ post.url | relative_url }}">
           Read full reflection →
         </a>
       </div>
-    </div>
-   {% endfor %}
+</div>
+  {% endfor %}
 </div>
