@@ -1,39 +1,80 @@
 ---
-title: "Foundations"
-subtitle: "Thesis & Conceptual Frameworks"
 layout: section
+title: "Foundations"
+subtitle: "Core Ideas & Vision"
 permalink: /foundations/
 ---
 
-# Foundations — The Core of Firmware AI
+<!-- ============================================================
+     SECTION HERO — PORTRAIT + MYTHIC SUBTITLE + DESCRIPTION
+     ============================================================ -->
+<section class="section-hero">
 
-The Foundations section gathers the **theoretical backbone** of the entire blog.  
-Here you’ll find the **Firmware AI thesis**, conceptual frameworks, and the vision that guides all applied projects and research explorations.
+  <div class="section-hero-center">
 
-Below is a curated feed of all essays in this section.  
-Each card includes a visual asset, a short resume, and a link to the full form.
+  <img src="{{ '/assets/images/me/conceptual.jpg' | relative_url }}"
+         alt="Louis Nathan Essomba reflecting on ideas"
+         class="section-portrait"
+         loading="lazy">
+
+  <h1 class="section-title-hero">Foundations</h1>
+    <p class="section-subtitle-hero">
+      “Every system begins with a philosophy — every philosophy begins with a question.”
+    </p>
+    <p class="section-description">
+      Foundations is the conceptual core of my work.  
+      This is where the <strong>Firmware AI thesis</strong> is shaped, challenged, refined, and expanded.
+      Here, I explore the principles that guide my entire vision: decentralization, sustainability,
+      human‑centered intelligence, and the idea that technology should empower rather than dominate.
+      These essays form the intellectual backbone of everything I build — the theory before the practice,
+      the architecture before the code, the meaning before the mechanism.
+    </p>
+
+  </div>
+
+</section>
 
 ---
 
-{% assign items = site.foundations | sort: "date" | reverse %}
+<!-- ============================================================
+     FEED — LATEST + MOST VIEWED
+     ============================================================ -->
+<section class="section-feed">
 
-<div class="feed">
-  {% for post in items %}
-    <div class="card">
-{% if post.thumbnail %}
-        <img src="{{ post.thumbnail | relative_url }}" 
-             alt="{{ post.title }} thumbnail" 
-             class="thumb" loading="lazy">
-      {% endif %}
- <div class="content">
-        <h2>{{ post.title }}</h2>
-{% if post.resume %}
-          <p>{{ post.resume }}</p>
-        {% endif %}
-<a class="read-more" href="{{ post.url | relative_url }}">
-          Read full essay →
-        </a>
-      </div>
-</div>
-  {% endfor %}
-</div>
+  <h2 class="feed-title">Core Essays</h2>
+
+  {% assign foundation_posts = site["foundations"] | sort: "date" | reverse %}
+  {% assign latest = foundation_posts | first %}
+
+  <!-- Latest Post -->
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Most Viewed (manual selection) -->
+  {% assign most_viewed = site["foundations"] | where: "slug", "firmware-ai-thesis" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <a href="{{ '/foundations/' | relative_url }}" class="section-link">Browse all Foundations →</a>
+
+</section>
