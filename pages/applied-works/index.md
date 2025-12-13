@@ -18,23 +18,33 @@ Each card includes a visual asset, a short resume, and a link to the full post.
 # 📱 Local Mini AI Project  
 ### A mobile experiment in local intelligence
 
-{% assign local_posts = site.applied-works | where_exp: "item", "item.categories contains 'local-mini-ai'" | sort: 'date' | reverse %}
+{% assign local_posts = site["applied-works"] 
+     | where_exp: "item", "item.categories contains 'local-mini-ai'" 
+     | sort: "date" 
+     | reverse %}
 
 <div class="feed">
   {% for post in local_posts %}
     <div class="card">
+
       {% if post.thumbnail %}
-        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+        <img src="{{ post.thumbnail | relative_url }}" 
+             alt="{{ post.title }} thumbnail" 
+             class="thumb" loading="lazy">
       {% endif %}
 
       <div class="content">
         <h2>{{ post.title }}</h2>
-        <p>{{ post.resume }}</p>
 
-        <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+        {% if post.resume %}
+          <p>{{ post.resume }}</p>
+        {% endif %}
+
+        <a class="read-more" href="{{ post.url | relative_url }}">
           Read full post →
         </a>
       </div>
+
     </div>
   {% endfor %}
 </div>
@@ -44,21 +54,28 @@ Each card includes a visual asset, a short resume, and a link to the full post.
 # 🌍 Offline-First SaaS for the South  
 ### A sustainable platform for Africa and South America
 
-{% assign saas_posts = site.applied-works | where_exp: "item", "item.categories contains 'offline-first-saas'" | sort: 'date' | reverse %}
+{% assign saas_posts = site["applied-works"] 
+     | where_exp: "item", "item.categories contains 'offline-first-saas'" 
+     | sort: "date" 
+     | reverse %}
 
 <div class="feed">
   {% for post in saas_posts %}
     <div class="card">
-      {% if post.thumbnail %}
-        <img src="{{ post.thumbnail }}" alt="{{ post.title }} thumbnail" class="thumb">
+ {% if post.thumbnail %}
+        <img src="{{ post.thumbnail | relative_url }}" 
+             alt="{{ post.title }} thumbnail" 
+             class="thumb" loading="lazy">
       {% endif %}
-<div class="content">
+  <div class="content">
         <h2>{{ post.title }}</h2>
-        <p>{{ post.resume }}</p>
-<a class="read-more" href="{{ site.baseurl }}{{ post.url }}">
+ {% if post.resume %}
+          <p>{{ post.resume }}</p>
+        {% endif %}
+<a class="read-more" href="{{ post.url | relative_url }}">
           Read full post →
         </a>
       </div>
-    </div>
+</div>
   {% endfor %}
 </div>
