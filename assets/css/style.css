@@ -107,16 +107,22 @@ html, body {
   margin-top: 1rem;
 }
 
-/* Tags */
+/* Tags inside posts */
 .post-tags .tag {
   display: inline-block;
   margin-right: 0.5rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.25rem 0.6rem;
   border-radius: var(--radius);
   background: var(--accent);
   color: #000;
   font-size: 0.85rem;
   text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.post-tags .tag:hover {
+  opacity: 0.85;
 }
 
 /* ============================================================
@@ -232,6 +238,35 @@ html, body {
 }
 
 /* ============================================================
+   TAG SYSTEM (GLOBAL + TAG INDEX)
+   ============================================================ */
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag-list a.tag {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.tag-list a.tag:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 600px) {
@@ -263,26 +298,3 @@ html, body {
     height: auto;
   }
 }
-.tag-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tag-list a.tag {
-  padding: 0.3rem 0.6rem;
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.tag-list a.tag:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
-
