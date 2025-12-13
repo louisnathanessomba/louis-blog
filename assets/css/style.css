@@ -263,3 +263,26 @@ html, body {
     height: auto;
   }
 }
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-list a.tag {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.tag-list a.tag:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
