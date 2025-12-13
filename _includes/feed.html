@@ -1,0 +1,39 @@
+<h2 class="feed-title">{{ include.title }}</h2>
+
+{% assign posts = include.posts | sort: "date" | reverse %}
+{% assign latest = posts | first %}
+
+<!-- Latest -->
+{% if latest %}
+<div class="feed-card">
+  {% if latest.thumbnail %}
+    <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+  {% endif %}
+  <div class="feed-content">
+    <h3>{{ latest.title }}</h3>
+    <p>{{ latest.resume }}</p>
+    <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+  </div>
+</div>
+{% endif %}
+
+<!-- Most Viewed -->
+{% if include.most_viewed %}
+{% assign mv = posts | where: "slug", include.most_viewed | first %}
+{% if mv %}
+<div class="feed-card">
+  {% if mv.thumbnail %}
+    <img src="{{ mv.thumbnail | relative_url }}" class="feed-thumb">
+  {% endif %}
+  <div class="feed-content">
+    <h3>{{ mv.title }}</h3>
+    <p>{{ mv.resume }}</p>
+    <a href="{{ mv.url | relative_url }}" class="read-more">Most viewed →</a>
+  </div>
+</div>
+{% endif %}
+{% endif %}
+
+<a href="{{ include.link | relative_url }}" class="section-link">
+  {{ include.link_text }}
+</a>
