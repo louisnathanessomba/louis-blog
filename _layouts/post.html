@@ -12,7 +12,7 @@ layout: default
     {% if page.thumbnail %}
       <div class="post-thumbnail">
         <img src="{{ page.thumbnail | relative_url }}" 
-             alt="{{ page.title }} thumbnail">
+             alt="{{ page.title }} thumbnail" loading="lazy">
       </div>
     {% endif %}
 
@@ -55,8 +55,8 @@ layout: default
   <!-- ========================= -->
   <footer class="post-footer">
     <nav class="breadcrumbs">
-      <a href="{{ site.baseurl }}/">Home</a> ›
-      <a href="{{ site.baseurl }}/{{ page.collection }}/">
+      <a href="{{ '/' | relative_url }}">Home</a> ›
+      <a href="{{ '/' | append: page.collection | append: '/' | relative_url }}">
         {{ page.collection | replace: '-', ' ' | capitalize }}
       </a> ›
       <span>{{ page.title }}</span>
@@ -71,7 +71,7 @@ layout: default
 <footer class="footer">
   <small>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</small>
   <span>•</span>
-  <a href="{{ site.baseurl }}/about-me/">About Me</a>
+  <a href="{{ '/about-me/' | relative_url }}">About Me</a>
   <span>•</span>
   <a href="https://github.com/{{ site.github_username }}/{{ site.repository }}">
     GitHub Repo
