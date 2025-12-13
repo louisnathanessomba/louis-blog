@@ -1,159 +1,291 @@
 ---
 layout: home
-title: "Firmware AI — Responsible Innovation"
-subtitle: "A living lab notebook by Louis Nathan Essomba"
-permalink: /
+title: "Louis Nathan Essomba"
 ---
 
-<!-- ========================= -->
-<!-- HYBRID HERO (handled by layout: home) -->
-<!-- ========================= -->
+<!-- ============================================================
+     PERSONAL INTRODUCTION HERO
+     ============================================================ -->
+<section class="intro-hero">
 
-<!-- The hero is rendered automatically by default.html when layout == "home" -->
+  <div class="intro-center">
+    <img src="{{ '/assets/images/me/portrait.jpg' | relative_url }}"
+         alt="Portrait of Louis Nathan Essomba"
+         class="intro-portrait"
+         loading="lazy">
 
+    <h1 class="intro-title">Louis Nathan Essomba</h1>
+    <p class="intro-subtitle">“Building intelligence that respects humans and the Earth.”</p>
 
-<!-- ========================= -->
-<!-- VISION SECTION -->
-<!-- ========================= -->
+    <p class="intro-text">
+      I am a young scientist‑technologist exploring the frontier between devices, intelligence, and ethics.
+      This blog is my living laboratory — a place where I document my research, my projects, and the philosophy
+      behind my <strong>Firmware AI thesis</strong>.  
+      Here, you’ll find structured knowledge, transparent experiments, and reflections on how technology can
+      remain sustainable, local, and human‑centered.
+    </p>
+  </div>
 
-# 🌌 My Vision — Firmware AI
-
-<div class="vision-diagram">
-  <img src="{{ '/assets/images/diagrams/device-cloud-firmware-ai.png' | relative_url }}"
-       alt="Firmware AI conceptual diagram"
-       loading="lazy">
-</div>
-
-> **Intelligence should live on devices.  
-> The cloud should be a library of algorithms, not a master.**
-
-I believe in a future where:
-
-- Devices carry **local intelligence**  
-- The cloud becomes a **temporary algorithm library**  
-- Technology respects **humans** and **Earth**  
-- Innovation is **ethical, ecological, and equitable**  
-- Access to algorithms is **democratized**, not centralized  
-
+</section>
 
 ---
 
-# 🧭 Explore the Divisions
+<!-- ============================================================
+     FOUNDATIONS
+     ============================================================ -->
+<section class="section-feed">
 
-Below are the six divisions of this blog.  
-Each section includes **latest** and **most viewed** posts.
+  <h2 class="section-title">Foundations</h2>
+  <p class="section-summary">
+    The core ideas behind Firmware AI — thesis, vision, and the conceptual architecture that guides all my work.
+  </p>
 
----
+  {% assign foundations_posts = site["foundations"] | sort: "date" | reverse %}
+  {% assign latest = foundations_posts | first %}
 
-## Foundations  
-### Thesis & conceptual frameworks  
-[Visit section →]({{ '/foundations/' | relative_url }})
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
 
-{% assign f_posts = site.foundations | sort: "date" | reverse %}
-{% if f_posts.size > 0 %}
-  {% assign f_latest = f_posts | first %}
-  **Latest:**  
-  - [{{ f_latest.title }}]({{ f_latest.url | relative_url }})
+  {% assign most_viewed = site["foundations"] | where: "slug", "firmware-ai-cloud-library" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
 
-  {% assign f_most = site.foundations | sort: "views" | reverse | first %}
-  **Most viewed:**  
-  - [{{ f_most.title }}]({{ f_most.url | relative_url }})
-{% else %}
-  _No posts yet._
-{% endif %}
+  <a href="{{ '/foundations/' | relative_url }}" class="section-link">Visit Foundations →</a>
 
----
-
-## Applied Works  
-### Real-world projects applying the thesis  
-[Visit section →]({{ '/applied-works/' | relative_url }})
-
-{% assign a_posts = site["applied-works"] | sort: "date" | reverse %}
-{% if a_posts.size > 0 %}
-  {% assign a_latest = a_posts | first %}
-  **Latest:**  
-  - [{{ a_latest.title }}]({{ a_latest.url | relative_url }})
-
-  {% assign a_most = site["applied-works"] | sort: "views" | reverse | first %}
-  **Most viewed:**  
-  - [{{ a_most.title }}]({{ a_most.url | relative_url }})
-{% else %}
-  _No posts yet._
-{% endif %}
-
----
-
-## Exploring Frontiers  
-### Independent research & company vision threads  
-[Visit section →]({{ '/exploring-frontiers/' | relative_url }})
-
-{% assign e_posts = site["exploring-frontiers"] | sort: "date" | reverse %}
-{% if e_posts.size > 0 %}
-  {% assign e_latest = e_posts | first %}
-  **Latest:**  
-  - [{{ e_latest.title }}]({{ e_latest.url | relative_url }})
-
-  {% assign e_most = site["exploring-frontiers"] | sort: "views" | reverse | first %}
-  **Most viewed:**  
-  - [{{ e_most.title }}]({{ e_most.url | relative_url }})
-{% else %}
-  _No posts yet._
-{% endif %}
+</section>
 
 ---
 
-## Ethics & Ecology  
-### Responsibility at the core  
-[Visit section →]({{ '/ethics-and-ecology/' | relative_url }})
+<!-- ============================================================
+     APPLIED WORKS
+     ============================================================ -->
+<section class="section-feed">
 
-{% assign ee_posts = site["ethics-and-ecology"] | sort: "date" | reverse %}
-{% if ee_posts.size > 0 %}
-  {% assign ee_latest = ee_posts | first %}
-  **Latest:**  
-  - [{{ ee_latest.title }}]({{ ee_latest.url | relative_url }})
+  <h2 class="section-title">Applied Works</h2>
+  <p class="section-summary">
+    Real‑world experiments that bring Firmware AI to life — mobile intelligence, offline SaaS, and sustainable computing.
+  </p>
 
-  {% assign ee_most = site["ethics-and-ecology"] | sort: "views" | reverse | first %}
-  **Most viewed:**  
-  - [{{ ee_most.title }}]({{ ee_most.url | relative_url }})
-{% else %}
-  _No posts yet._
-{% endif %}
+  {% assign applied_posts = site["applied-works"] | sort: "date" | reverse %}
+  {% assign latest = applied_posts | first %}
+
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  {% assign most_viewed = site["applied-works"] | where: "slug", "local-mini-ai-intro" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <a href="{{ '/applied-works/' | relative_url }}" class="section-link">Visit Applied Works →</a>
+
+</section>
 
 ---
 
-## Everyday Insights  
-### Student life tips & reflections  
-[Visit section →]({{ '/everyday-insights/' | relative_url }})
+<!-- ============================================================
+     EXPLORING FRONTIERS
+     ============================================================ -->
+<section class="section-feed">
 
-{% assign i_posts = site["everyday-insights"] | sort: "date" | reverse %}
-{% if i_posts.size > 0 %}
-  {% assign i_latest = i_posts | first %}
-  **Latest:**  
-  - [{{ i_latest.title }}]({{ i_latest.url | relative_url }})
+  <h2 class="section-title">Exploring Frontiers</h2>
+  <p class="section-summary">
+    Independent research exploring energy‑aware ML, AI strategies, and the future of sustainable intelligence.
+  </p>
 
-  {% assign i_most = site["everyday-insights"] | sort: "views" | reverse | first %}
-  **Most viewed:**  
-  - [{{ i_most.title }}]({{ i_most.url | relative_url }})
-{% else %}
-  _No posts yet._
-{% endif %}
+  {% assign frontier_posts = site["exploring-frontiers"] | sort: "date" | reverse %}
+  {% assign latest = frontier_posts | first %}
+
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  {% assign most_viewed = site["exploring-frontiers"] | where: "slug", "energy-aware-ml" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <a href="{{ '/exploring-frontiers/' | relative_url }}" class="section-link">Visit Exploring Frontiers →</a>
+
+</section>
 
 ---
 
-## About Me  
-### Vision, background, and how to connect  
-[Visit section →]({{ '/about-me/' | relative_url }})
+<!-- ============================================================
+     ETHICS & ECOLOGY
+     ============================================================ -->
+<section class="section-feed">
 
-{% assign me_posts = site["about-me"] | sort: "date" | reverse %}
-{% if me_posts.size > 0 %}
-  {% assign me_latest = me_posts | first %}
-  **Latest:**  
-  - [{{ me_latest.title }}]({{ me_latest.url | relative_url }})
+  <h2 class="section-title">Ethics & Ecology</h2>
+  <p class="section-summary">
+    Reflections on responsibility, sustainability, and the moral foundations of technological progress.
+  </p>
 
-  {% assign me_most = site["about-me"] | sort: "views" | reverse | first %}
-  **Most viewed:**  
-  - [{{ me_most.title }}]({{ me_most.url | relative_url }})
-{% else %}
-  _No posts yet._
-{% endif %}
+  {% assign ethics_posts = site["ethics-and-ecology"] | sort: "date" | reverse %}
+  {% assign latest = ethics_posts | first %}
 
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  {% assign most_viewed = site["ethics-and-ecology"] | where: "slug", "ethics-ecology-interdependence" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <a href="{{ '/ethics-and-ecology/' | relative_url }}" class="section-link">Visit Ethics & Ecology →</a>
+
+</section>
+
+---
+
+<!-- ============================================================
+     EVERYDAY INSIGHTS
+     ============================================================ -->
+<section class="section-feed">
+
+  <h2 class="section-title">Everyday Insights</h2>
+  <p class="section-summary">
+    Notes on learning, productivity, and the daily practice of becoming a better scientist.
+  </p>
+
+  {% assign insights_posts = site["everyday-insights"] | sort: "date" | reverse %}
+  {% assign latest = insights_posts | first %}
+
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  {% assign most_viewed = site["everyday-insights"] | where: "slug", "studying-deep-math" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <a href="{{ '/everyday-insights/' | relative_url }}" class="section-link">Visit Everyday Insights →</a>
+
+</section>
+
+---
+
+<!-- ============================================================
+     ABOUT ME
+     ============================================================ -->
+<section class="section-feed">
+
+  <h2 class="section-title">About Me</h2>
+  <p class="section-summary">
+    My background, my mission, and the philosophy guiding my work.
+  </p>
+
+  {% assign about_posts = site["about-me"] | sort: "date" | reverse %}
+  {% assign latest = about_posts | first %}
+
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <a href="{{ '/about-me/' | relative_url }}" class="section-link">Visit About Me →</a>
+
+</section>
