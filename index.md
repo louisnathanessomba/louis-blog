@@ -13,11 +13,9 @@ title: "Louis Nathan Essomba"
          alt="Portrait of Louis Nathan Essomba"
          class="intro-portrait"
          loading="lazy">
-
-    <h1 class="intro-title">Louis Nathan Essomba</h1>
+<h1 class="intro-title">Louis Nathan Essomba</h1>
     <p class="intro-subtitle">“Building intelligence that respects humans and the Earth.”</p>
-
-    <p class="intro-text">
+<p class="intro-text">
       I am a young scientist‑technologist exploring the frontier between devices, intelligence, and ethics.
       This blog is my living laboratory — a place where I document my research, my projects, and the philosophy
       behind my <strong>Firmware AI thesis</strong>.  
