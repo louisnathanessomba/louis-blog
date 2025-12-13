@@ -1,84 +1,135 @@
 ---
 layout: section
 title: "Everyday Insights"
-subtitle: "Student life tips and commentary on news"
+subtitle: "Life, Learning & Perspective"
 permalink: /everyday-insights/
 ---
 
-# Everyday Insights — Life & Reflections
+<!-- ============================================================
+     SECTION HERO — PORTRAIT + MYTHIC SUBTITLE + DESCRIPTION
+     ============================================================ -->
+<section class="section-hero">
 
-Everyday Insights is the most personal division of the blog.  
-It gathers reflections from my student life, practical strategies for productivity and balance, and commentary on news or events that resonate with my vision of responsible innovation.
+  <div class="section-hero-center">
 
-Below, you’ll find two curated feeds:
-- **Student Life Tips** → practical advice, study methods, productivity, balance  
-- **Me Too** → opinions and reflections on news and societal issues  
+<img src="{{ '/assets/images/me/studying.jpg' | relative_url }}"
+         alt="Louis Nathan Essomba studying and reflecting"
+         class="section-portrait"
+         loading="lazy">
+    <h1 class="section-title-hero">Everyday Insights</h1>
+    <p class="section-subtitle-hero">
+      “Growth happens in the quiet moments — the ones no one sees.”
+    </p>
+    <p class="section-description">
+      Everyday Insights is the human side of my journey — the space where I share what I learn
+      outside of formal research and engineering.  
+      This division is divided into two subsections: <strong>Student Life Tips</strong>, where I
+      document my methods, struggles, and strategies as a student in the scientific department;
+      and <strong>Me Too</strong>, a more personal zone where I reflect on news, society, and
+      the world beyond my core fields.  
+      These insights are small, honest, and grounded — the everyday fuel behind my larger work.
+    </p>
 
-Each post includes a visual asset, a short resume, and a link to the full form.
+  </div>
 
----
-
-# 🎓 Student Life Tips  
-### Practical strategies from my journey as a scientific student
-
-{% assign tips_posts = site["everyday-insights"] 
-     | where_exp: "item", "item.categories contains 'student-life-tips'" 
-     | sort: "date" 
-     | reverse %}
-
-<div class="feed">
-  {% for post in tips_posts %}
-    <div class="card">
-
-      {% if post.thumbnail %}
-        <img src="{{ post.thumbnail | relative_url }}" 
-             alt="{{ post.title }} thumbnail" 
-             class="thumb" loading="lazy">
-      {% endif %}
-
-      <div class="content">
-        <h2>{{ post.title }}</h2>
-
-        {% if post.resume %}
-          <p>{{ post.resume }}</p>
-        {% endif %}
-
-        <a class="read-more" href="{{ post.url | relative_url }}">
-          Read full post →
-        </a>
-      </div>
-
-    </div>
-  {% endfor %}
-</div>
+</section>
 
 ---
 
-# 📰 Me Too  
-### Opinions and reflections on news and events
+<!-- ============================================================
+     SUBSECTION 1 — STUDENT LIFE TIPS
+     ============================================================ -->
+<section class="subsection-feed">
 
-{% assign me_too_posts = site["everyday-insights"] 
-     | where_exp: "item", "item.categories contains 'me-too'" 
-     | sort: "date" 
-     | reverse %}
+  <h2 class="subsection-title">Student Life Tips</h2>
+  <p class="subsection-summary">
+    Practical strategies, study methods, and reflections from my daily life as a student.
+  </p>
 
-<div class="feed">
-  {% for post in me_too_posts %}
-    <div class="card">
-{% if post.thumbnail %}
-        <img src="{{ post.thumbnail | relative_url }}" 
-             alt="{{ post.title }} thumbnail" 
-             class="thumb" loading="lazy">
-      {% endif %}
-<div class="content">
-        <h2>{{ post.title }}</h2>
- {% if post.resume %}
-          <p>{{ post.resume }}</p>
-        {% endif %}
- <a class="read-more" href="{{ post.url | relative_url }}">
-          Read full reflection →
-        </a>
-      </div>
+  <a href="{{ '/everyday-insights/student-life-tips/' | relative_url }}"
+     class="subsection-link">Visit Student Life Tips →</a>
+
+  {% assign slt_posts = site["everyday-insights"] | where: "subsection", "student-life-tips" %}
+  {% assign sorted_slt = slt_posts | sort: "date" | reverse %}
+
+  <!-- Latest Post -->
+  {% assign latest = sorted_slt | first %}
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
     </div>
-  {% endfor %}
-</div>
+  </div>
+  {% endif %}
+
+  <!-- Most Viewed (manual selection) -->
+  {% assign most_viewed = slt_posts | where: "slug", "study-methods-example" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
+
+</section>
+
+---
+
+<!-- ============================================================
+     SUBSECTION 2 — ME TOO
+     ============================================================ -->
+<section class="subsection-feed">
+
+  <h2 class="subsection-title">Me Too</h2>
+  <p class="subsection-summary">
+    Personal reflections, opinions on news, and thoughts that live outside my main fields.
+  </p>
+
+  <a href="{{ '/everyday-insights/me-too/' | relative_url }}"
+     class="subsection-link">Visit Me Too →</a>
+
+  {% assign metoo_posts = site["everyday-insights"] | where: "subsection", "me-too" %}
+  {% assign sorted_metoo = metoo_posts | sort: "date" | reverse %}
+
+  <!-- Latest Post -->
+  {% assign latest = sorted_metoo | first %}
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Most Viewed (manual selection) -->
+  {% assign most_viewed = metoo_posts | where: "slug", "opinion-example" | first %}
+  {% if most_viewed %}
+  <div class="feed-card">
+    {% if most_viewed.thumbnail %}
+      <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ most_viewed.title }}</h3>
+      <p>{{ most_viewed.resume }}</p>
+      <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+    </div>
+  </div>
+  {% endif %}
+
+</section>
