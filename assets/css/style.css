@@ -10,20 +10,18 @@
   --radius: 8px;
 
   /* Division-specific accents */
-  --accent-foundations: #4da6ff;        /* blue */
-  --accent-applied: #ffb84d;            /* orange */
-  --accent-frontiers: #b84dff;          /* purple */
-  --accent-ethics: #6ddf6d;             /* green */
-  --accent-insights: #ff6d6d;           /* red */
-  --accent-about: #ffd24d;              /* yellow */
+  --accent-foundations: #4da6ff;
+  --accent-applied: #ffb84d;
+  --accent-frontiers: #b84dff;
+  --accent-ethics: #6ddf6d;
+  --accent-insights: #ff6d6d;
+  --accent-about: #ffd24d;
 
-  /* Default accent (fallback) */
+  /* Default accent */
   --accent: #606060;
 }
 
-/* ============================================================
-   DIVISION ACCENT SYSTEM (auto-applied via <body class="...">)
-   ============================================================ */
+/* Accent auto-application */
 body.foundations { --accent: var(--accent-foundations); }
 body.applied-works { --accent: var(--accent-applied); }
 body.exploring-frontiers { --accent: var(--accent-frontiers); }
@@ -49,23 +47,46 @@ html, body {
    NAVIGATION
    ============================================================ */
 .nav {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 1rem;
-  border-bottom: 1px solid var(--border);
   background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
 }
 
-.nav a {
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  color: var(--fg);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
   color: var(--fg);
   text-decoration: none;
-  font-weight: 500;
   opacity: 0.85;
+  font-weight: 500;
   padding-bottom: 2px;
 }
 
-.nav a:hover {
+.nav-link:hover,
+.nav-link.active {
   opacity: 1;
   border-bottom: 2px solid var(--accent);
 }
@@ -80,49 +101,201 @@ html, body {
 }
 
 /* ============================================================
-   SECTION HEADERS
+   HERO — HOMEPAGE
    ============================================================ */
-.section-header h1,
-.post-header h1 {
-  margin: 0 0 0.5rem;
-  font-size: 2rem;
-  border-left: 4px solid var(--accent);
-  padding-left: 0.5rem;
+.hero {
+  padding: 4rem 1rem;
+  background: var(--bg-alt);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.subtitle {
+.hero-inner {
+  max-width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+
+.hero-tagline {
+  font-size: 1.3rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.hero-description {
   color: var(--muted);
   font-size: 1.1rem;
 }
 
 /* ============================================================
-   POSTS
+   HERO — SECTION PAGES
    ============================================================ */
-.post .meta {
+.section-hero {
+  padding: 3rem 1rem;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-hero-portrait {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.section-hero-title {
+  font-size: 2.2rem;
+  margin: 0;
+  color: var(--accent);
+}
+
+.section-hero-subtitle {
+  font-size: 1.2rem;
   color: var(--muted);
-  font-size: 0.9rem;
+  margin: 0.5rem 0;
 }
 
-.post-content {
-  margin-top: 1rem;
+.section-hero-description {
+  max-width: 700px;
+  margin: 1rem auto 0;
+  color: var(--muted);
 }
 
-/* Tags inside posts */
+/* ============================================================
+   HERO — POST PAGES
+   ============================================================ */
+.post-hero {
+  padding: 3rem 1rem;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.post-hero-image img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.post-title {
+  font-size: 2.3rem;
+  margin: 0;
+  color: var(--accent);
+}
+
+.post-subtitle {
+  font-size: 1.2rem;
+  color: var(--muted);
+  margin: 0.5rem 0;
+}
+
+.post-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
 .post-tags .tag {
   display: inline-block;
-  margin-right: 0.5rem;
-  padding: 0.25rem 0.6rem;
+  margin: 0.5rem 0.3rem;
+  padding: 0.3rem 0.7rem;
   border-radius: var(--radius);
   background: var(--accent);
   color: #000;
-  font-size: 0.85rem;
-  text-decoration: none;
   font-weight: 600;
-  transition: opacity 0.2s ease;
+  text-decoration: none;
 }
 
-.post-tags .tag:hover {
-  opacity: 0.85;
+/* ============================================================
+   CARD COMPONENT
+   ============================================================ */
+.card {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+.card-thumb {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.card-content h3 {
+  margin-top: 0;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ============================================================
+   FEED BLOCK
+   ============================================================ */
+.feed-block {
+  margin: 3rem auto;
+  max-width: 900px;
+}
+
+.feed-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 0.5rem;
+}
+
+.section-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 /* ============================================================
@@ -130,7 +303,7 @@ html, body {
    ============================================================ */
 .site-footer {
   border-top: 1px solid var(--border);
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
@@ -147,154 +320,25 @@ html, body {
 }
 
 /* ============================================================
-   HYBRID HERO (HOME ONLY)
-   ============================================================ */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 3rem 1rem;
-  background: var(--bg-alt);
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-}
-
-.hero-left img.hero-portrait {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--border);
-}
-
-.hero-right {
-  max-width: 500px;
-}
-
-.hero-right h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--accent);
-}
-
-.hero-right p {
-  color: var(--muted);
-  font-size: 1.2rem;
-}
-
-.hero-video video {
-  margin-top: 1rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-
-.hero-diagram img {
-  margin-top: 1rem;
-  width: 100%;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-
-/* ============================================================
-   FEED (SECTION INDEXES)
-   ============================================================ */
-.feed {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.card {
-  display: flex;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg-alt);
-  transition: border-color 0.2s ease;
-}
-
-.card:hover {
-  border-color: var(--accent);
-}
-
-.card .thumb {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: var(--radius);
-}
-
-.card .content h2 {
-  margin-top: 0;
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* ============================================================
-   TAG SYSTEM (GLOBAL + TAG INDEX)
-   ============================================================ */
-.tag-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.tag-list a.tag {
-  padding: 0.35rem 0.75rem;
-  border: 1px solid var(--accent);
-  border-radius: var(--radius);
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.tag-list a.tag:hover {
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
-}
-
-/* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 600px) {
-  .nav {
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .hero {
+@media (max-width: 700px) {
+  .card {
+    flex-direction: column;
     text-align: center;
+    align-items: center;
   }
 
-  .hero-right h1 {
+  .card-thumb {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-title {
     font-size: 2rem;
   }
 
-  .container {
-    padding: 0.5rem;
-  }
-
-  .card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .card .thumb {
-    width: 100%;
-    height: auto;
+  .section-hero-title {
+    font-size: 1.9rem;
   }
 }
