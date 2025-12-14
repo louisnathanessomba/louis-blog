@@ -1,0 +1,77 @@
+foundations:
+  key: "foundations"
+  name: "Foundations"
+  accent: "#4da6ff"
+  portrait: "/assets/images/sections/foundations.png"
+  subtitle: "The conceptual core of Firmware AI"
+  description: >
+    The ideas, principles, and architecture that guide all my work.
+    Foundations is where I explore the deep structures behind intelligence,
+    computation, and responsible innovation.
+  collection: "foundations"
+  most_viewed: "firmware-ai-cloud-library"
+  url: "/foundations/"
+
+applied-works:
+  key: "applied-works"
+  name: "Applied Works"
+  accent: "#ffb84d"
+  portrait: "/assets/images/sections/applied-works.png"
+  subtitle: "Building real systems with Firmware AI"
+  description: >
+    Practical projects, prototypes, and engineering explorations that bring
+    Firmware AI principles into real devices and real environments.
+  collection: "applied-works"
+  most_viewed: "local-mini-ai-intro"
+  url: "/applied-works/"
+
+exploring-frontiers:
+  key: "exploring-frontiers"
+  name: "Exploring Frontiers"
+  accent: "#b84dff"
+  portrait: "/assets/images/sections/exploring-frontiers.png"
+  subtitle: "Pushing the boundaries of what’s possible"
+  description: >
+    Research notes, experiments, and speculative ideas at the edge of
+    computation, energy, intelligence, and the future of devices.
+  collection: "exploring-frontiers"
+  most_viewed: "energy-aware-ml"
+  url: "/exploring-frontiers/"
+
+ethics-and-ecology:
+  key: "ethics-and-ecology"
+  name: "Ethics & Ecology"
+  accent: "#6ddf6d"
+  portrait: "/assets/images/sections/ethics-and-ecology.png"
+  subtitle: "Technology must serve life"
+  description: >
+    Reflections on responsibility, sustainability, and the interdependence
+    between humans, devices, and the planet.
+  collection: "ethics-and-ecology"
+  most_viewed: "ethics-ecology-interdependence"
+  url: "/ethics-and-ecology/"
+
+everyday-insights:
+  key: "everyday-insights"
+  name: "Everyday Insights"
+  accent: "#ff6d6d"
+  portrait: "/assets/images/sections/everyday-insights.png"
+  subtitle: "Small reflections, big meaning"
+  description: >
+    Personal notes, observations, and insights from daily life — the human
+    side of a scientific journey.
+  collection: "everyday-insights"
+  most_viewed: "studying-deep-math"
+  url: "/everyday-insights/"
+
+about-me:
+  key: "about-me"
+  name: "About Me"
+  accent: "#ffd24d"
+  portrait: "/assets/images/sections/about-me.png"
+  subtitle: "Who I am and why I build"
+  description: >
+    My story, my motivations, and the philosophy behind my work.
+  collection: "about-me"
+  most_viewed: ""
+  url: "/about-me/"
