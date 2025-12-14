@@ -1,7 +1,7 @@
 # ============================================================
 # SITE IDENTITY
 # ============================================================
-title: "Firmware AI — Responsible Innovation"
+title: "Louis Nathan Essomba - When Human Intelligence Meets Technology"
 description: "A living lab notebook and public journal: thesis, applied projects, research, ethics & ecology, and everyday insights."
 url: "https://louisnathanessomba.github.io"
 baseurl: "/louis-blog"
@@ -15,7 +15,6 @@ author:
   name: "Louis Nathan Essomba"
   email: "louisnathanessomba@gmail.com"
   github: "louisnathanessomba"
-  linkedin: ""
   location: "Yaoundé, Cameroon"
 
 github_username: "louisnathanessomba"
@@ -37,7 +36,7 @@ paginate: 10
 paginate_path: "/page:num"
 
 # ============================================================
-# THEME VARIABLES (used in your custom CSS)
+# THEME VARIABLES
 # ============================================================
 theme:
   colors:
@@ -53,7 +52,6 @@ theme:
 
 # ============================================================
 # NAVIGATION
-# (No Liquid here; prepend baseurl or use | relative_url in templates)
 # ============================================================
 nav:
   - name: "Foundations"
@@ -70,9 +68,7 @@ nav:
     url: "/about-me/"
 
 # ============================================================
-# COLLECTIONS (each division)
-# NOTE: keys with hyphens require bracket access in Liquid:
-#   site["ethics-and-ecology"]
+# COLLECTIONS
 # ============================================================
 collections:
   foundations:
@@ -95,7 +91,7 @@ collections:
     permalink: /about-me/:name/
 
 # ============================================================
-# DEFAULTS (layouts + categories)
+# DEFAULTS
 # ============================================================
 defaults:
   # Regular pages
@@ -110,45 +106,38 @@ defaults:
       path: "pages/foundations"
     values:
       layout: section
-      categories: ["foundations"]
 
   - scope:
       path: "pages/applied-works"
     values:
       layout: section
-      categories: ["applied-works"]
 
   - scope:
       path: "pages/exploring-frontiers"
     values:
       layout: section
-      categories: ["exploring-frontiers"]
 
   - scope:
       path: "pages/ethics-and-ecology"
     values:
       layout: section
-      categories: ["ethics-and-ecology"]
 
   - scope:
       path: "pages/everyday-insights"
     values:
       layout: section
-      categories: ["everyday-insights"]
 
   - scope:
       path: "pages/about-me"
     values:
       layout: section
-      categories: ["about-me"]
 
-  # Collection documents (posts) — include views to support sorting
+  # Collection documents (posts)
   - scope:
       path: ""
       type: "foundations"
     values:
       layout: post
-      categories: ["foundations"]
       views: 0
 
   - scope:
@@ -156,7 +145,6 @@ defaults:
       type: "applied-works"
     values:
       layout: post
-      categories: ["applied-works"]
       views: 0
 
   - scope:
@@ -164,7 +152,6 @@ defaults:
       type: "exploring-frontiers"
     values:
       layout: post
-      categories: ["exploring-frontiers"]
       views: 0
 
   - scope:
@@ -172,7 +159,6 @@ defaults:
       type: "ethics-and-ecology"
     values:
       layout: post
-      categories: ["ethics-and-ecology"]
       views: 0
 
   - scope:
@@ -180,7 +166,6 @@ defaults:
       type: "everyday-insights"
     values:
       layout: post
-      categories: ["everyday-insights"]
       views: 0
 
   - scope:
@@ -188,11 +173,10 @@ defaults:
       type: "about-me"
     values:
       layout: post
-      categories: ["about-me"]
       views: 0
 
 # ============================================================
-# PLUGINS (GitHub Pages supported only)
+# PLUGINS
 # ============================================================
 plugins:
   - jekyll-seo-tag
@@ -228,12 +212,8 @@ exclude:
   - .DS_Store
   - _links/
 
-include:
-  - pages/
-
 # ============================================================
-# CUSTOM VARIABLES
-# (No Liquid here; prepend baseurl in templates)
+# CUSTOM LINKS (optional)
 # ============================================================
 site_links:
   home: "/"
