@@ -1,20 +1,26 @@
-<div class="section-hero-center">
+<section class="section-hero">
+  <div class="section-hero-inner">
 
-  {% if include.portrait %}
-  <img src="{{ include.portrait | relative_url }}"
-       alt="{{ include.alt }}"
-       class="section-portrait"
-       loading="lazy">
-  {% endif %}
+    {% if include.portrait %}
+      <img src="{{ include.portrait | relative_url }}"
+           alt="{{ include.alt | default: include.title }}"
+           class="section-hero-portrait"
+           loading="lazy">
+    {% endif %}
 
-  <h1 class="section-title-hero">{{ include.title }}</h1>
+    <div class="section-hero-text">
 
-  {% if include.subtitle %}
-  <p class="section-subtitle-hero">{{ include.subtitle }}</p>
-  {% endif %}
+      <h1 class="section-hero-title">{{ include.title }}</h1>
 
-  {% if include.description %}
-  <p class="section-description">{{ include.description }}</p>
-  {% endif %}
+      {% if include.subtitle %}
+        <p class="section-hero-subtitle">{{ include.subtitle }}</p>
+      {% endif %}
 
-</div>
+      {% if include.description %}
+        <p class="section-hero-description">{{ include.description }}</p>
+      {% endif %}
+
+    </div>
+
+  </div>
+</section>
