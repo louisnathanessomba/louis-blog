@@ -2,43 +2,54 @@
 layout: default
 ---
 
-<section class="section">
+<section class="tag-hero">
 
-  <!-- ========================= -->
-  <!-- TAG HEADER -->
-  <!-- ========================= -->
-  <header class="section-header">
-    <h1>Tag: {{ page.tag }}</h1>
-  </header>
+  <div class="tag-hero-inner">
+    <h1 class="tag-title">#{{ page.tag }}</h1>
 
-  <!-- ========================= -->
-  <!-- TAG FEED -->
-  <!-- ========================= -->
-  <div class="feed">
-    {% assign tagged_posts = site.tags[page.tag] | sort: "date" | reverse %}
-    {% for post in tagged_posts %}
-      <div class="card">
+    {% if page.description %}
+      <p class="tag-description">{{ page.description }}</p>
+    {% else %}
+      <p class="tag-description">
+        Posts tagged with <strong>{{ page.tag }}</strong>.
+      </p>
+    {% endif %}
+  </div>
 
-        {% if post.thumbnail %}
-          <img src="{{ post.thumbnail | relative_url }}"
-               alt="{{ post.title }} thumbnail"
-               class="thumb" loading="lazy">
-        {% endif %}
+</section>
 
-        <div class="content">
-          <h2>{{ post.title }}</h2>
+<section class="tag-body container">
 
-          {% if post.resume %}
-            <p>{{ post.resume }}</p>
+  {% assign tagged_posts = site.tags[page.tag] | sort: "date" | reverse %}
+
+  {% if tagged_posts and tagged_posts.size > 0 %}
+    <div class="tag-feed">
+      {% for post in tagged_posts %}
+        <div class="card">
+
+          {% if post.thumbnail %}
+            <img src="{{ post.thumbnail | relative_url }}"
+                 alt="{{ post.title }} thumbnail"
+                 class="thumb" loading="lazy">
           {% endif %}
 
-          <a class="read-more" href="{{ post.url | relative_url }}">
-            Read full post →
-          </a>
-        </div>
+          <div class="content">
+            <h2>{{ post.title }}</h2>
 
-      </div>
-    {% endfor %}
-  </div>
+            {% if post.resume %}
+              <p>{{ post.resume }}</p>
+            {% endif %}
+
+            <a class="read-more" href="{{ post.url | relative_url }}">
+              Read full post →
+            </a>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="tag-empty">No posts found for this tag.</p>
+  {% endif %}
 
 </section>
