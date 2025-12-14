@@ -4,19 +4,19 @@ title: "Louis Nathan Essomba"
 ---
 
 <!-- ============================================================
-     HERO — CLEAN, MINIMAL, PROFESSIONAL
+     HERO (already rewritten earlier)
      ============================================================ -->
 <section class="hero">
   <div class="hero-inner">
+
     <img src="{{ '/assets/images/me/portrait.jpg' | relative_url }}"
          alt="Portrait of Louis Nathan Essomba"
          class="hero-portrait"
          loading="lazy">
+
     <div class="hero-text">
       <h1 class="hero-title">Louis Nathan Essomba</h1>
-      <p class="hero-tagline">
-        Building intelligence that respects humans and the Earth.
-      </p>
+      <p class="hero-tagline">Building intelligence that respects humans and the Earth.</p>
       <p class="hero-description">
         I am a young scientist‑technologist exploring the frontier between devices,
         intelligence, and ethics.  
@@ -31,52 +31,52 @@ title: "Louis Nathan Essomba"
 ---
 
 <!-- ============================================================
-     SECTION FEED TEMPLATE (REUSED)
+     SECTION FEEDS (using feed-block.html)
      ============================================================ -->
 
-{% include section-feed.html
+{% include feed-block.html
    title="Foundations"
-   summary="The core ideas behind Firmware AI — thesis, vision, and conceptual architecture."
-   collection="foundations"
-   most_viewed_slug="firmware-ai-cloud-library"
-   section_url="/foundations/"
+   posts=site.foundations
+   most_viewed="firmware-ai-cloud-library"
+   link="/foundations/"
+   link_text="Visit Foundations →"
 %}
 
-{% include section-feed.html
+{% include feed-block.html
    title="Applied Works"
-   summary="Real‑world experiments that bring Firmware AI to life — mobile intelligence, offline SaaS, and sustainable computing."
-   collection="applied-works"
-   most_viewed_slug="local-mini-ai-intro"
-   section_url="/applied-works/"
+   posts=site["applied-works"]
+   most_viewed="local-mini-ai-intro"
+   link="/applied-works/"
+   link_text="Visit Applied Works →"
 %}
 
-{% include section-feed.html
+{% include feed-block.html
    title="Exploring Frontiers"
-   summary="Independent research exploring energy‑aware ML, AI strategies, and the future of sustainable intelligence."
-   collection="exploring-frontiers"
-   most_viewed_slug="energy-aware-ml"
-   section_url="/exploring-frontiers/"
+   posts=site["exploring-frontiers"]
+   most_viewed="energy-aware-ml"
+   link="/exploring-frontiers/"
+   link_text="Visit Exploring Frontiers →"
 %}
 
-{% include section-feed.html
+{% include feed-block.html
    title="Ethics & Ecology"
-   summary="Reflections on responsibility, sustainability, and the moral foundations of technological progress."
-   collection="ethics-and-ecology"
-   most_viewed_slug="ethics-ecology-interdependence"
-   section_url="/ethics-and-ecology/"
+   posts=site["ethics-and-ecology"]
+   most_viewed="ethics-ecology-interdependence"
+   link="/ethics-and-ecology/"
+   link_text="Visit Ethics & Ecology →"
 %}
 
-{% include section-feed.html
+{% include feed-block.html
    title="Everyday Insights"
-   summary="Notes on learning, productivity, and the daily practice of becoming a better scientist."
-   collection="everyday-insights"
-   most_viewed_slug="studying-deep-math"
-   section_url="/everyday-insights/"
+   posts=site["everyday-insights"]
+   most_viewed="studying-deep-math"
+   link="/everyday-insights/"
+   link_text="Visit Everyday Insights →"
 %}
 
-{% include section-feed.html
+{% include feed-block.html
    title="About Me"
-   summary="My background, my mission, and the philosophy guiding my work."
-   collection="about-me"
-   section_url="/about-me/"
+   posts=site["about-me"]
+   link="/about-me/"
+   link_text="Visit About Me →"
 %}
