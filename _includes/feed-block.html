@@ -1,0 +1,42 @@
+<section class="feed-block">
+
+  {% if include.title %}
+    <h2 class="feed-title">{{ include.title }}</h2>
+  {% endif %}
+
+  {% assign posts = include.posts | sort: "date" | reverse %}
+  {% assign latest = posts | first %}
+
+  <!-- Latest -->
+  {% if latest %}
+    {% include card.html
+       thumbnail=latest.thumbnail
+       title=latest.title
+       resume=latest.resume
+       url=latest.url
+       link_text="Read latest →"
+    %}
+  {% endif %}
+
+  <!-- Most Viewed -->
+  {% if include.most_viewed %}
+    {% assign mv = posts | where: "slug", include.most_viewed | first %}
+    {% if mv %}
+      {% include card.html
+         thumbnail=mv.thumbnail
+         title=mv.title
+         resume=mv.resume
+         url=mv.url
+         link_text="Most viewed →"
+      %}
+    {% endif %}
+  {% endif %}
+
+  <!-- Section Link -->
+  {% if include.link %}
+    <a href="{{ include.link | relative_url }}" class="section-link">
+      {{ include.link_text | default: "Explore more →" }}
+    </a>
+  {% endif %}
+
+</section>
