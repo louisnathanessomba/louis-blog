@@ -2,47 +2,55 @@
 layout: default
 ---
 
-<section class="section">
+<section class="section-hero">
 
-  <!-- ========================= -->
-  <!-- SECTION HEADER -->
-  <!-- ========================= -->
-  <header class="section-header">
-    <h1>{{ page.title }}</h1>
+  <div class="section-hero-inner">
 
-    {% if page.subtitle %}
-      <p class="subtitle">{{ page.subtitle }}</p>
+    {% if page.portrait %}
+      <img src="{{ page.portrait | relative_url }}"
+           alt="{{ page.title }} portrait"
+           class="section-hero-portrait"
+           loading="lazy">
     {% endif %}
-  </header>
 
-  <!-- ========================= -->
-  <!-- MAIN SECTION CONTENT -->
-  <!-- ========================= -->
+    <div class="section-hero-text">
+      <h1 class="section-title">{{ page.title }}</h1>
+
+      {% if page.subtitle %}
+        <p class="section-subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+
+      {% if page.description %}
+        <p class="section-description">{{ page.description }}</p>
+      {% endif %}
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section-body container">
+
+  <!-- MAIN CONTENT -->
   <div class="section-content">
     {{ content }}
   </div>
 
-  <!-- ========================= -->
-  <!-- OPTIONAL FEED BLOCK -->
-  <!-- ========================= -->
+  <!-- OPTIONAL FEED -->
   {% if page.feed %}
     <div class="section-feed">
       {{ page.feed }}
     </div>
   {% endif %}
 
-  <!-- ========================= -->
-  <!-- OPTIONAL "EXPLORE MORE" LINKS -->
-  <!-- ========================= -->
+  <!-- OPTIONAL LINKS -->
   {% if page.links %}
     <nav class="section-links">
       <h2>Explore More</h2>
       <ul>
         {% for link in page.links %}
           <li>
-            <a href="{{ link.url | relative_url }}">
-              {{ link.name }}
-            </a>
+            <a href="{{ link.url | relative_url }}">{{ link.name }}</a>
           </li>
         {% endfor %}
       </ul>
