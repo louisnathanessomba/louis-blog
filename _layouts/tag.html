@@ -2,52 +2,22 @@
 layout: default
 ---
 
-<section class="tag-hero">
-
-  <div class="tag-hero-inner">
-    <h1 class="tag-title">#{{ page.tag }}</h1>
-
-    {% if page.description %}
-      <p class="tag-description">{{ page.description }}</p>
-    {% else %}
-      <p class="tag-description">
-        Posts tagged with <strong>{{ page.tag }}</strong>.
-      </p>
-    {% endif %}
-  </div>
-
-</section>
+{% include hero-section.html
+   title="#" | append: page.tag
+   description="Posts tagged with “" | append: page.tag | append: "”."
+%}
 
 <section class="tag-body container">
 
   {% assign tagged_posts = site.tags[page.tag] | sort: "date" | reverse %}
 
   {% if tagged_posts and tagged_posts.size > 0 %}
-    <div class="tag-feed">
-      {% for post in tagged_posts %}
-        <div class="card">
-
-          {% if post.thumbnail %}
-            <img src="{{ post.thumbnail | relative_url }}"
-                 alt="{{ post.title }} thumbnail"
-                 class="thumb" loading="lazy">
-          {% endif %}
-
-          <div class="content">
-            <h2>{{ post.title }}</h2>
-
-            {% if post.resume %}
-              <p>{{ post.resume }}</p>
-            {% endif %}
-
-            <a class="read-more" href="{{ post.url | relative_url }}">
-              Read full post →
-            </a>
-          </div>
-
-        </div>
-      {% endfor %}
-    </div>
+    {% include feed-block.html
+       title="Posts"
+       posts=tagged_posts
+       link="/tags/"
+       link_text="All tags →"
+    %}
   {% else %}
     <p class="tag-empty">No posts found for this tag.</p>
   {% endif %}
