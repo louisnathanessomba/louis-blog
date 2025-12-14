@@ -1,21 +1,35 @@
 <nav class="nav" aria-label="Main navigation">
-  <ul class="nav-list">
+  <div class="nav-inner">
 
-    <!-- Home link -->
-    <li class="nav-item">
-      <a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
-    </li>
+    <!-- Logo / Site Title -->
+    <a href="{{ '/' | relative_url }}" class="nav-logo">
+      {{ site.title }}
+    </a>
 
-    <!-- Dynamic navigation items -->
-    {% for item in site.nav %}
-      {% if item.url and item.name %}
-        <li class="nav-item">
-          <a href="{{ item.url | relative_url }}" class="nav-link">
-            {{ item.name }}
-          </a>
-        </li>
-      {% endif %}
-    {% endfor %}
+    <!-- Navigation Links -->
+    <ul class="nav-list">
 
-  </ul>
+      <!-- Home link -->
+      <li class="nav-item">
+        <a href="{{ '/' | relative_url }}"
+           class="nav-link {% if page.url == '/' %}active{% endif %}">
+          Home
+        </a>
+      </li>
+
+      <!-- Dynamic navigation items from _config.yml -->
+      {% for item in site.nav %}
+        {% if item.url and item.name %}
+          <li class="nav-item">
+            <a href="{{ item.url | relative_url }}"
+               class="nav-link {% if page.url == item.url %}active{% endif %}">
+              {{ item.name }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+
+    </ul>
+
+  </div>
 </nav>
