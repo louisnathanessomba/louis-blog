@@ -4,56 +4,63 @@ layout: default
 
 <article class="post">
 
-  <!-- ========================= -->
-  <!-- POST HEADER -->
-  <!-- ========================= -->
-  <header class="post-header">
+  <!-- ========================================================= -->
+  <!-- POST HERO -->
+  <!-- ========================================================= -->
+  <header class="post-hero">
 
     {% if page.thumbnail %}
-      <div class="post-thumbnail">
+      <div class="post-hero-image">
         <img src="{{ page.thumbnail | relative_url }}"
              alt="{{ page.title }} thumbnail"
              loading="lazy">
       </div>
     {% endif %}
 
-    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-hero-text">
+      <h1 class="post-title">{{ page.title }}</h1>
 
-    {% if page.subtitle %}
-      <p class="post-subtitle">{{ page.subtitle }}</p>
-    {% endif %}
-
-    <p class="post-meta">
-      {% if page.date %}
-        <span>Published on {{ page.date | date: "%B %d, %Y" }}</span>
+      {% if page.subtitle %}
+        <p class="post-subtitle">{{ page.subtitle }}</p>
       {% endif %}
 
-      {% if page.views %}
-        <span>• {{ page.views }} views</span>
-      {% endif %}
-    </p>
+      <p class="post-meta">
+        {% if page.date %}
+          <span>{{ page.date | date: "%B %d, %Y" }}</span>
+        {% endif %}
 
-    {% if page.tags %}
-      <p class="post-tags">
-        {% for tag in page.tags %}
-          <a class="tag" href="{{ '/tags/' | relative_url }}{{ tag | slugify }}/">
-            {{ tag }}
-          </a>
-        {% endfor %}
+        {% if page.reading_time %}
+          <span>• {{ page.reading_time }} min read</span>
+        {% endif %}
+
+        {% if page.views %}
+          <span>• {{ page.views }} views</span>
+        {% endif %}
       </p>
-    {% endif %}
+
+      {% if page.tags %}
+        <p class="post-tags">
+          {% for tag in page.tags %}
+            <a class="tag" href="{{ '/tags/' | relative_url }}{{ tag | slugify }}/">
+              {{ tag }}
+            </a>
+          {% endfor %}
+        </p>
+      {% endif %}
+    </div>
+
   </header>
 
-  <!-- ========================= -->
+  <!-- ========================================================= -->
   <!-- POST CONTENT -->
-  <!-- ========================= -->
-  <div class="post-content">
+  <!-- ========================================================= -->
+  <div class="post-content container">
     {{ content }}
   </div>
 
-  <!-- ========================= -->
+  <!-- ========================================================= -->
   <!-- BREADCRUMBS -->
-  <!-- ========================= -->
+  <!-- ========================================================= -->
   <footer class="post-footer">
     <nav class="breadcrumbs">
       <a href="{{ '/' | relative_url }}">Home</a> ›
