@@ -9,12 +9,12 @@ title: "Louis Nathan Essomba"
 <section class="hero">
   <div class="hero-inner">
 
-    <img src="{{ '/assets/images/me/portrait.jpg' | relative_url }}"
+<img src="{{ '/assets/images/me/portrait.jpg' | relative_url }}"
          alt="Portrait of Louis Nathan Essomba"
          class="hero-portrait"
          loading="lazy">
 
-    <div class="hero-text">
+<div class="hero-text">
       <h1 class="hero-title">Louis Nathan Essomba</h1>
       <p class="hero-tagline">Building intelligence that respects humans and the Earth.</p>
       <p class="hero-description">
