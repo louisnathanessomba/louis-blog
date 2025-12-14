@@ -1,0 +1,40 @@
+<section class="section-feed">
+
+  <h2 class="section-title">{{ include.title }}</h2>
+  <p class="section-summary">{{ include.summary }}</p>
+
+  {% assign posts = site[include.collection] | sort: "date" | reverse %}
+  {% assign latest = posts | first %}
+
+  {% if latest %}
+  <div class="feed-card">
+    {% if latest.thumbnail %}
+      <img src="{{ latest.thumbnail | relative_url }}" class="feed-thumb">
+    {% endif %}
+    <div class="feed-content">
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.resume }}</p>
+      <a href="{{ latest.url | relative_url }}" class="read-more">Read latest →</a>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if include.most_viewed_slug %}
+    {% assign most_viewed = site[include.collection] | where: "slug", include.most_viewed_slug | first %}
+    {% if most_viewed %}
+    <div class="feed-card">
+      {% if most_viewed.thumbnail %}
+        <img src="{{ most_viewed.thumbnail | relative_url }}" class="feed-thumb">
+      {% endif %}
+      <div class="feed-content">
+        <h3>{{ most_viewed.title }}</h3>
+        <p>{{ most_viewed.resume }}</p>
+        <a href="{{ most_viewed.url | relative_url }}" class="read-more">Most viewed →</a>
+      </div>
+    </div>
+    {% endif %}
+  {% endif %}
+
+  <a href="{{ include.section_url | relative_url }}" class="section-link">Visit {{ include.title }} →</a>
+
+</section>
