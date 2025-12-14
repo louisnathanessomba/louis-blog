@@ -2,32 +2,12 @@
 layout: default
 ---
 
-<section class="section-hero">
-
-  <div class="section-hero-inner">
-
-    {% if page.portrait %}
-      <img src="{{ page.portrait | relative_url }}"
-           alt="{{ page.title }} portrait"
-           class="section-hero-portrait"
-           loading="lazy">
-    {% endif %}
-
-    <div class="section-hero-text">
-      <h1 class="section-title">{{ page.title }}</h1>
-
-      {% if page.subtitle %}
-        <p class="section-subtitle">{{ page.subtitle }}</p>
-      {% endif %}
-
-      {% if page.description %}
-        <p class="section-description">{{ page.description }}</p>
-      {% endif %}
-    </div>
-
-  </div>
-
-</section>
+{% include hero-section.html
+   title=page.title
+   subtitle=page.subtitle
+   description=page.description
+   portrait=page.portrait
+%}
 
 <section class="section-body container">
 
@@ -37,10 +17,14 @@ layout: default
   </div>
 
   <!-- OPTIONAL FEED -->
-  {% if page.feed %}
-    <div class="section-feed">
-      {{ page.feed }}
-    </div>
+  {% if page.feed_posts %}
+    {% include feed-block.html
+       title=page.feed_title
+       posts=page.feed_posts
+       most_viewed=page.most_viewed
+       link=page.feed_link
+       link_text=page.feed_link_text
+    %}
   {% endif %}
 
   <!-- OPTIONAL LINKS -->
@@ -49,9 +33,7 @@ layout: default
       <h2>Explore More</h2>
       <ul>
         {% for link in page.links %}
-          <li>
-            <a href="{{ link.url | relative_url }}">{{ link.name }}</a>
-          </li>
+          <li><a href="{{ link.url | relative_url }}">{{ link.name }}</a></li>
         {% endfor %}
       </ul>
     </nav>
